@@ -23,6 +23,36 @@
       padding: 1.5rem;
     }
 
+    /* navbar superior */
+    .top-nav {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .back-link {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      color: #FAF9F6;
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    .back-link svg {
+      transition: transform 0.2s;
+    }
+
+    .back-link:hover {
+      color: #E4007C;
+    }
+
+    .back-link:hover svg {
+      transform: translateX(-3px);
+    }
+
     /* card principal */
     .register-container {
       max-width: 520px;
@@ -44,7 +74,7 @@
       font-family: 'Bungee', cursive;
       font-size: 2.2rem;
       letter-spacing: 0.02em;
-      background: linear-gradient(135deg, #E4007C 0%, #E4007C 70%, #ff66b5 100%);
+      background: #E4007C;
       background-clip: text;
       -webkit-background-clip: text;
       color: transparent;
@@ -111,7 +141,7 @@
     .input-field {
       width: 100%;
       background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(228, 0, 124, 0.35);
+      border: 1px solid rgba(255, 255, 255, 0.89);
       border-radius: 1.2rem;
       padding: 0.85rem 1.2rem;
       font-family: 'Bricolage Grotesque', monospace;
@@ -235,6 +265,23 @@
   </style>
 </head>
 <body>
+  <div class="top-nav">
+  <a href="{{ route('welcome') }}" class="back-link">
+    <!-- Ícono flecha -->
+    <svg xmlns="http://www.w3.org/2000/svg" 
+         width="20" height="20" 
+         viewBox="0 0 24 24" 
+         fill="none" 
+         stroke="currentColor" 
+         stroke-width="2" 
+         stroke-linecap="round" 
+         stroke-linejoin="round">
+      <line x1="19" y1="12" x2="5" y2="12"></line>
+      <polyline points="12 19 5 12 12 5"></polyline>
+    </svg>
+    <span>Volver</span>
+  </a>
+</div>
 <div class="register-container">
   <!-- Branding igual que login -->
   <div class="brand-header">

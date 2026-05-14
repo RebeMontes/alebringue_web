@@ -23,14 +23,36 @@
     <style>
         /* Fondo degradado morado */
         .bg-gradient-purple {
-            background: linear-gradient(135deg, #c2006b 0%, #b535b5 50%, #c2006b 100%);
+            background: #000000
+        }
+        
+        .header{
+            background: #19191c
+        }
+
+        .btn-descargar {
+            background: #E4007C;
+            color: white;
+        }
+
+        .btn-empezar a {
+            background: #E4007C;
+        }
+
+        .name-ezq{
+            background: #E4007C;
+            font-size: =1.50rem;
+            background-clip: text;
+            font-family: 'Bungee', cursive;
+            -webkit-background-clip: text;
+            color: transparent;
         }
 
         .brand-name {
             font-family: 'Bungee', cursive;
             font-size: 5.2rem;
             letter-spacing: 0.02em;
-            background: linear-gradient(135deg, #ffffff 0%, #ffffff 70%, #ffffff 100%);
+            background: #E4007C;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -106,6 +128,10 @@
                 font-size: 2.8rem;
             }
         }
+
+        footer {
+            background: #19191c;
+        }
     </style>
 </head>
 <body class="bg-gradient-purple min-h-screen">
@@ -114,15 +140,15 @@
     <div class="min-h-screen flex flex-col">
         
         <!-- ==================== HEADER - MENÚ NEGRO ==================== -->
-        <header class="bg-black border-b border-gray-800">
+        <header class="header">
             <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
                 <!-- Logo (solo texto, sin el recuadro) -->
-                <span class="font-Bungee text-2xl text-white tracking-tight">ALEBRINGÜE</span>
+                <span class="name-ezq">ALEBRINGÜE</span>
 
                 <!-- Menú navegación escritorio -->
                 <nav class="hidden md:flex items-center gap-8">
                     <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Inicar Sesion</a>
-                    <a href="#" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Descargar app</a>
+                    <a href="#" class="btn-descargar px-5 py-2 rounded-full font-semibold text-sm ">Descargar app</a>
                 </nav>
 
                 <!-- Botón menú móvil hamburguesa -->
@@ -164,7 +190,7 @@
                 </p>
                 
                 <!-- Botón Empezar - Negro con letras blancas -->
-                <div class="mt-10">
+                <div class="btn-empezar">
                     <a href="#" class="inline-block bg-black text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-0.5">
                         Empezar
                     </a>
@@ -188,7 +214,7 @@
         </main>
 
         <!-- ==================== FOOTER ==================== -->
-        <footer class="bg-black/50 text-gray-400 py-6 mt-auto">
+        <footer class="py-4">
             <div class="max-w-6xl mx-auto px-6">
                 <div class="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
                     <span class="text-gray-400 text-xs">2026 Alebringüe</span>
