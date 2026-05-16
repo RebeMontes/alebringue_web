@@ -8,11 +8,6 @@ use App\Models\User;
 
 class AuthController extends Controller
 {
-    public function home()
-    {
-        return view('home.index');
-    }
-
     public function loginForm()
     {
         return view('auth.login');

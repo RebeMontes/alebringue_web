@@ -36,12 +36,8 @@
 
             <!-- Menú móvil desplegable -->
             <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-gray-800 py-4 px-6 flex flex-col gap-4">
-                <a href="#" class="text-white hover:text-gray-300 py-1">inicio</a>
-                <a href="#" class="text-white hover:text-gray-300 py-1">características</a>
-                <div class="flex items-center gap-1 text-white py-1">niveles <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-                <a href="#" class="text-white hover:text-gray-300 py-1">función</a>
-                <div class="flex items-center gap-1 text-white py-1">recursos <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-                <a href="#" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-center mt-2">iniciar sesión</a>
+                 <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Inicar Sesion</a>
+                    <a href="#" class="btn-descargar px-5 py-2 rounded-full font-semibold text-sm ">Descargar app</a>
             </div>
         </header>
 
