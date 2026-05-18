@@ -24,7 +24,7 @@
                     colors: {
                         'ale-pink': '#E4007C',
                         'ale-bg': '#131313',
-                        'ale-surface': '#1a1a1a',
+                        'ale-surface': '#19191c',
                         'ale-surface-light': '#222222',
                         'ale-text': '#FAF9F6',
                         'ale-text-dim': 'rgba(250, 249, 246, 0.7)',
@@ -43,7 +43,7 @@
         }
         
         body {
-            background-color: #131313;
+            background-color: #19191c;
             font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
             color: #FAF9F6;
         }
@@ -75,7 +75,7 @@
         }
         
         ::-webkit-scrollbar-track {
-            background: #1a1a1a;
+            background: #19191c;
         }
         
         ::-webkit-scrollbar-thumb {

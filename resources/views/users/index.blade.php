@@ -26,7 +26,7 @@
             </button>
             
             <!-- Botón nuevo usuario -->
-            <a href="#" class="btn-primary flex items-center gap-2 text-sm">
+            <a href="{{ route('users.create') }}" class="btn-primary flex items-center gap-2 text-sm">
                 <i class="fas fa-plus"></i>
                 Nuevo Usuario
             </a>
@@ -113,11 +113,6 @@
                 </select>
             </div>
             
-            <!-- Botón limpiar filtros -->
-            <button id="clear-filters" class="btn-outline text-sm px-4">
-                <i class="fas fa-eraser"></i>
-                Limpiar
-            </button>
         </div>
     </div>
     
@@ -200,13 +195,13 @@
                         </td>
                         <td class="px-4 py-4 align-middle">
                             <div class="flex items-center justify-center gap-3">
-                                <a href="#" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Editar">
+                                <a href="{{ route('users.edit', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <button type="button" onclick="confirmDelete({{ $user->id }}, '{{ addslashes($user->name) }}')" class="text-ale-text-dim hover:text-red-500 transition p-1" title="Eliminar">
+                                <a href="{{ route('users.destroy', $user->id) }}" type="button" onclick="confirmDelete({{ $user->id }}, '{{ addslashes($user->name) }}')" class="text-ale-text-dim hover:text-red-500 transition p-1" title="Eliminar">
                                     <i class="fas fa-trash-alt"></i>
-                                </button>
-                                <a href="#" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Ver detalles">
+                                </a>
+                                <a href="{{ route('users.show', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Ver detalles">
                                     <i class="fas fa-eye"></i>
                                 </a>
                             </div>
@@ -220,7 +215,7 @@
                                     <i class="fas fa-users-slash text-3xl text-ale-text-dim"></i>
                                 </div>
                                 <p class="text-ale-text-dim">No hay usuarios registrados</p>
-                                <a href="#" class="btn-primary text-sm mt-2">Crear primer usuario</a>
+                                <a href="{{ route('users.create') }}" class="btn-primary text-sm mt-2">Crear primer usuario</a>
                             </div>
                         </td>
                     </tr>
@@ -237,7 +232,7 @@
         @endif
     </div>
     
-    <!-- Acciones masivas -->
+   <!-- Acciones masivas -->
     <div id="bulk-actions" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-ale-surface border border-ale-border rounded-xl shadow-xl p-3 flex items-center gap-4 z-50 hidden">
         <span id="selected-count" class="text-ale-text text-sm">0 seleccionados</span>
         <div class="h-6 w-px bg-ale-border"></div>
@@ -257,7 +252,7 @@
     
 </div>
 
-<!-- Modal de confirmación de eliminación -->
+<!-- Modal de confirmación de eliminación individual -->
 <div id="delete-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
     <div class="bg-ale-surface border border-ale-border rounded-2xl p-6 max-w-md w-full mx-4">
         <div class="flex items-center gap-3 mb-4">
@@ -280,94 +275,87 @@
         </div>
     </div>
 </div>
-@endsection
 
-@push('styles')
-<style>
-    .stat-card {
-        background: #1a1a1a;
-        border: 1px solid rgba(228, 0, 124, 0.2);
-        border-radius: 1rem;
-        transition: all 0.2s ease;
-    }
-    
-    .stat-card:hover {
-        border-color: #E4007C;
-        transform: translateY(-2px);
-    }
-    
-    .input-admin {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(228, 0, 124, 0.35);
-        border-radius: 0.5rem;
-        padding: 0.6rem 0.75rem;
-        color: #FAF9F6;
-        width: 100%;
-        outline: none;
-        transition: all 0.2s ease;
-    }
-    
-    .input-admin:focus {
-        border-color: #E4007C;
-        box-shadow: 0 0 0 2px rgba(228, 0, 124, 0.25);
-    }
-    
-    input[type="checkbox"] {
-        accent-color: #E4007C;
-        width: 1rem;
-        height: 1rem;
-        cursor: pointer;
-    }
-    
-    /* Mejoras de tabla */
-    .table-ale th,
-    .table-ale td {
-        vertical-align: middle;
-    }
-    
-    /* Animación de hover para filas */
-    .user-row {
-        transition: background-color 0.2s ease;
-    }
-    
-    /* Paginación personalizada */
-    .pagination {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    
-    .pagination .page-item .page-link {
-        background: #1a1a1a;
-        border: 1px solid rgba(228, 0, 124, 0.25);
-        color: #FAF9F6;
-        padding: 0.5rem 0.85rem;
-        border-radius: 0.5rem;
-        transition: all 0.2s ease;
-        font-size: 0.875rem;
-    }
-    
-    .pagination .page-item.active .page-link {
-        background: #E4007C;
-        border-color: #E4007C;
-    }
-    
-    .pagination .page-item.disabled .page-link {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    
-    .pagination .page-item:not(.disabled):not(.active) .page-link:hover {
-        border-color: #E4007C;
-        background: rgba(228, 0, 124, 0.1);
-    }
-</style>
-@endpush
+<!-- Modal de confirmación de eliminación masiva -->
+<div id="bulk-delete-modal" class="fixed inset-0 z-50 flex items-center justify-center bg-black/70 backdrop-blur-sm hidden">
+    <div class="bg-ale-surface border border-ale-border rounded-2xl p-6 max-w-md w-full mx-4">
+        <div class="flex items-center gap-3 mb-4">
+            <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
+                <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
+            </div>
+            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación masiva</h3>
+        </div>
+        <p class="text-ale-text-dim mb-6">
+            ¿Estás seguro de que deseas eliminar <strong id="bulk-delete-count" class="text-ale-pink"></strong> usuario(s)?
+            Esta acción no se puede deshacer.
+        </p>
+        <div class="flex gap-3 justify-end">
+            <button id="cancel-bulk-delete" class="btn-outline">Cancelar</button>
+            <button id="confirm-bulk-delete" class="btn-primary bg-red-600 hover:bg-red-700">Eliminar</button>
+        </div>
+    </div>
+</div>
 
-@push('scripts')
+<!-- Toast de notificación -->
+<div id="toast-notification" class="fixed top-20 right-6 z-50 transform transition-all duration-300 translate-x-full">
+    <div class="bg-ale-surface border rounded-xl shadow-xl p-4 min-w-[280px] flex items-center gap-3">
+        <div id="toast-icon" class="w-8 h-8 rounded-full flex items-center justify-center"></div>
+        <div class="flex-1">
+            <p id="toast-title" class="font-semibold text-ale-text"></p>
+            <p id="toast-message" class="text-sm text-ale-text-dim"></p>
+        </div>
+        <button onclick="hideToast()" class="text-ale-text-dim hover:text-ale-text">
+            <i class="fas fa-times"></i>
+        </button>
+    </div>
+</div>
+
 <script>
-    // Función para confirmar eliminación
+    // Función para mostrar toast
+    function showToast(title, message, type = 'success') {
+        const toast = document.getElementById('toast-notification');
+        const toastIcon = document.getElementById('toast-icon');
+        const toastTitle = document.getElementById('toast-title');
+        const toastMessage = document.getElementById('toast-message');
+        
+        if (type === 'success') {
+            toastIcon.innerHTML = '<i class="fas fa-check-circle text-green-400 text-lg"></i>';
+            toastIcon.className = 'w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center';
+            toastTitle.textContent = title;
+            toastTitle.className = 'font-semibold text-green-400';
+        } else if (type === 'error') {
+            toastIcon.innerHTML = '<i class="fas fa-exclamation-circle text-red-400 text-lg"></i>';
+            toastIcon.className = 'w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center';
+            toastTitle.textContent = title;
+            toastTitle.className = 'font-semibold text-red-400';
+        } else {
+            toastIcon.innerHTML = '<i class="fas fa-info-circle text-blue-400 text-lg"></i>';
+            toastIcon.className = 'w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center';
+            toastTitle.textContent = title;
+            toastTitle.className = 'font-semibold text-blue-400';
+        }
+        
+        toastMessage.textContent = message;
+        toast.classList.remove('translate-x-full');
+        toast.classList.add('translate-x-0');
+        
+        setTimeout(() => {
+            hideToast();
+        }, 4000);
+    }
+    
+    function hideToast() {
+        const toast = document.getElementById('toast-notification');
+        toast.classList.remove('translate-x-0');
+        toast.classList.add('translate-x-full');
+    }
+    
+    // Función para recargar la página
+    function reloadPage() {
+        location.reload();
+    }
+    
+    // Función para confirmar eliminación individual
     function confirmDelete(userId, userName) {
         const modal = document.getElementById('delete-modal');
         const deleteForm = document.getElementById('delete-form');
@@ -379,13 +367,12 @@
         document.body.style.overflow = 'hidden';
     }
     
-    // Cerrar modal
+    // Cerrar modal individual
     document.getElementById('cancel-delete')?.addEventListener('click', function() {
         document.getElementById('delete-modal').classList.add('hidden');
         document.body.style.overflow = '';
     });
     
-    // Cerrar modal al hacer click fuera
     document.getElementById('delete-modal')?.addEventListener('click', function(e) {
         if (e.target === this) {
             this.classList.add('hidden');
@@ -393,11 +380,13 @@
         }
     });
     
+    // Variables para bulk delete
+    let pendingDeleteIds = [];
+    
     // Búsqueda y filtros
     const searchInput = document.getElementById('search-input');
     const filterType = document.getElementById('filter-type');
     const filterStatus = document.getElementById('filter-status');
-    const clearFilters = document.getElementById('clear-filters');
     const rows = document.querySelectorAll('.user-row');
     
     function filterTable() {
@@ -425,7 +414,6 @@
             }
         });
         
-        // Mostrar mensaje si no hay resultados
         const tbody = document.querySelector('#users-table-body');
         const noResultsRow = document.getElementById('no-results-row');
         
@@ -437,33 +425,26 @@
                     <div class="flex flex-col items-center gap-2">
                         <i class="fas fa-search text-3xl text-ale-text-dim"></i>
                         <p class="text-ale-text-dim">No se encontraron usuarios con esos criterios</p>
-                        <button id="clear-filters-empty" class="btn-outline text-sm mt-2">Limpiar filtros</button>
+                        <button id="clear-filters-empty" class="btn-outline text-sm mt-2" onclick="resetFilters()">Limpiar filtros</button>
                     </div>
                 </td>`;
                 tbody?.appendChild(tr);
-                
-                document.getElementById('clear-filters-empty')?.addEventListener('click', () => {
-                    if (searchInput) searchInput.value = '';
-                    if (filterType) filterType.value = 'all';
-                    if (filterStatus) filterStatus.value = 'all';
-                    filterTable();
-                });
             }
         } else if (noResultsRow) {
             noResultsRow.remove();
         }
     }
     
-    searchInput?.addEventListener('keyup', filterTable);
-    filterType?.addEventListener('change', filterTable);
-    filterStatus?.addEventListener('change', filterTable);
-    
-    clearFilters?.addEventListener('click', function() {
+    function resetFilters() {
         if (searchInput) searchInput.value = '';
         if (filterType) filterType.value = 'all';
         if (filterStatus) filterStatus.value = 'all';
         filterTable();
-    });
+    }
+    
+    searchInput?.addEventListener('keyup', filterTable);
+    filterType?.addEventListener('change', filterTable);
+    filterStatus?.addEventListener('change', filterTable);
     
     // Selección múltiple
     const selectAll = document.getElementById('select-all');
@@ -508,38 +489,145 @@
         });
     });
     
-    // Acciones masivas
+    // Acciones masivas - Cancelar
     document.getElementById('bulk-cancel')?.addEventListener('click', function() {
         userCheckboxes.forEach(cb => cb.checked = false);
         if (selectAll) selectAll.checked = false;
         updateBulkActions();
     });
     
+    // Bulk Delete - Mostrar modal de confirmación
     document.getElementById('bulk-delete')?.addEventListener('click', function() {
         const selected = document.querySelectorAll('.user-checkbox:checked');
         const ids = Array.from(selected).map(cb => cb.value);
         
         if (ids.length === 0) return;
         
-        if (confirm(`¿Eliminar ${ids.length} usuario${ids.length !== 1 ? 's' : ''}?`)) {
-            // Aquí iría la llamada AJAX para eliminar múltiples usuarios
-            console.log('Eliminar usuarios:', ids);
-            alert('Función implementar con AJAX - Eliminar usuarios: ' + ids.join(', '));
+        pendingDeleteIds = ids;
+        const deleteCountSpan = document.getElementById('bulk-delete-count');
+        if (deleteCountSpan) {
+            deleteCountSpan.textContent = ids.length;
+        }
+        
+        document.getElementById('bulk-delete-modal').classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+    });
+    
+    // Confirmar bulk delete
+    document.getElementById('confirm-bulk-delete')?.addEventListener('click', function() {
+        const modal = document.getElementById('bulk-delete-modal');
+        const ids = pendingDeleteIds;
+        
+        if (ids.length === 0) return;
+        
+        // Realizar petición AJAX para eliminar múltiples usuarios
+        fetch('/admin/users/bulk-delete', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ ids: ids })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Éxito', `Se eliminaron ${data.deletedCount} usuario(s) correctamente`, 'success');
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+            } else {
+                showToast('Error', data.message || 'Error al eliminar usuarios', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Error', 'Ocurrió un error al eliminar los usuarios', 'error');
+        })
+        .finally(() => {
+            modal.classList.add('hidden');
+            document.body.style.overflow = '';
+            pendingDeleteIds = [];
+        });
+    });
+    
+    // Cancelar bulk delete
+    document.getElementById('cancel-bulk-delete')?.addEventListener('click', function() {
+        document.getElementById('bulk-delete-modal').classList.add('hidden');
+        document.body.style.overflow = '';
+        pendingDeleteIds = [];
+    });
+    
+    document.getElementById('bulk-delete-modal')?.addEventListener('click', function(e) {
+        if (e.target === this) {
+            this.classList.add('hidden');
+            document.body.style.overflow = '';
+            pendingDeleteIds = [];
         }
     });
     
+    // Bulk Activar
     document.getElementById('bulk-activate')?.addEventListener('click', function() {
         const selected = document.querySelectorAll('.user-checkbox:checked');
         const ids = Array.from(selected).map(cb => cb.value);
+        
         if (ids.length === 0) return;
-        alert(`Activar ${ids.length} usuario${ids.length !== 1 ? 's' : ''}`);
+        
+        fetch('/admin/users/bulk-activate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ ids: ids })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Éxito', `Se activaron ${data.updatedCount} usuario(s) correctamente`, 'success');
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+            } else {
+                showToast('Error', data.message || 'Error al activar usuarios', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Error', 'Ocurrió un error al activar los usuarios', 'error');
+        });
     });
     
+    // Bulk Desactivar
     document.getElementById('bulk-deactivate')?.addEventListener('click', function() {
         const selected = document.querySelectorAll('.user-checkbox:checked');
         const ids = Array.from(selected).map(cb => cb.value);
+        
         if (ids.length === 0) return;
-        alert(`Desactivar ${ids.length} usuario${ids.length !== 1 ? 's' : ''}`);
+        
+        fetch('/admin/users/bulk-deactivate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+            },
+            body: JSON.stringify({ ids: ids })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                showToast('Éxito', `Se desactivaron ${data.updatedCount} usuario(s) correctamente`, 'success');
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+            } else {
+                showToast('Error', data.message || 'Error al desactivar usuarios', 'error');
+            }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            showToast('Error', 'Ocurrió un error al desactivar los usuarios', 'error');
+        });
     });
     
     // Exportar usuarios
@@ -568,6 +656,83 @@
         link.click();
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
+        
+        showToast('Exportación', 'Usuarios exportados correctamente', 'success');
     });
 </script>
+
+@push('styles')
+<style>
+    .stat-card {
+        background: #19191c;
+        border: 1px solid rgba(228, 0, 124, 0.2);
+        border-radius: 1rem;
+        transition: all 0.2s ease;
+    }
+    
+    .stat-card:hover {
+        border-color: #E4007C;
+        transform: translateY(-2px);
+    }
+    
+    .input-admin {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(228, 0, 124, 0.35);
+        border-radius: 0.5rem;
+        padding: 0.6rem 0.75rem;
+        color: #FAF9F6;
+        width: 100%;
+        outline: none;
+        transition: all 0.2s ease;
+    }
+    
+    .input-admin:focus {
+        border-color: #E4007C;
+        box-shadow: 0 0 0 2px rgba(228, 0, 124, 0.25);
+    }
+    
+    input[type="checkbox"] {
+        accent-color: #E4007C;
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+    }
+    
+    .user-row {
+        transition: background-color 0.2s ease;
+    }
+    
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .pagination .page-item .page-link {
+        background: #19191c;
+        border: 1px solid rgba(228, 0, 124, 0.25);
+        color: #FAF9F6;
+        padding: 0.5rem 0.85rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        font-size: 0.875rem;
+    }
+    
+    .pagination .page-item.active .page-link {
+        background: #E4007C;
+        border-color: #E4007C;
+    }
+    
+    .pagination .page-item.disabled .page-link {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .pagination .page-item:not(.disabled):not(.active) .page-link:hover {
+        border-color: #E4007C;
+        background: rgba(228, 0, 124, 0.1);
+    }
+</style>
 @endpush
+@endsection

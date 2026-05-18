@@ -27,7 +27,7 @@
                     colors: {
                         'ale-pink': '#E4007C',
                         'ale-bg': '#131313',
-                        'ale-surface': '#1a1a1a',
+                        'ale-surface': '#19191c',
                         'ale-surface-light': '#222222',
                         'ale-text': '#FAF9F6',
                         'ale-text-dim': 'rgba(250, 249, 246, 0.7)',
@@ -54,7 +54,7 @@
         }
         
         body {
-            background-color: #131313;
+            background-color: #19191c;
             font-family: 'Bricolage Grotesque', system-ui, sans-serif;
             color: #FAF9F6;
             overflow-x: hidden;
@@ -139,7 +139,7 @@
         ::-webkit-scrollbar {
             width: 6px;
         }
-        ::-webkit-scrollbar-track { background: #1a1a1a; }
+        ::-webkit-scrollbar-track { background: #19191c; }
         ::-webkit-scrollbar-thumb { background: #E4007C; border-radius: 10px; }
         
         /* Brand */
@@ -173,7 +173,7 @@
         }
         
         .pagination .page-item .page-link {
-            background: #1a1a1a;
+            background: #19191c;
             border: 1px solid rgba(228, 0, 124, 0.25);
             color: #FAF9F6;
             padding: 0.5rem 0.75rem;
@@ -218,7 +218,7 @@
                 <!-- Logo -->
                 <div class="mb-8 flex items-center justify-center">
                     <a href="#" class="flex items-center space-x-2">
-                        <i class="fas fa-microphone-alt text-ale-pink text-2xl"></i>
+                        <i class="fas text-ale-pink text-2xl"></i>
                         <span class="brand-logo text-xl font-bold">ALEBRINGÜE</span>
                     </a>
                 </div>
@@ -241,17 +241,17 @@
                     <h2 class="text-ale-pink font-semibold text-xs uppercase tracking-wider mb-3">Principal</h2>
                     <ul class="space-y-1 mb-6">
                         <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                            <a href="{{ route('home') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
                                 <i class="fas fa-tachometer-alt mr-3 w-4"></i> Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
-                                <i class="fas fa-users mr-3 w-4"></i> Usuarios
+                            <a href="{{ route('users.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                                <i class="fas fa-users mr-3 w-4"></i> Gestion de Usuarios
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                       <!--     <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
                                 <i class="fas fa-book mr-3 w-4"></i> Lecciones
                             </a>
                         </li>
@@ -259,21 +259,7 @@
                             <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
                                 <i class="fas fa-layer-group mr-3 w-4"></i> Niveles
                             </a>
-                        </li>
-                    </ul>
-                    
-                    <h2 class="text-ale-pink font-semibold text-xs uppercase tracking-wider mb-3 mt-6">Gestión</h2>
-                    <ul class="space-y-1 mb-6">
-                        <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
-                                <i class="fas fa-microphone-alt mr-3 w-4"></i> Sesiones
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
-                                <i class="fas fa-file-alt mr-3 w-4"></i> Reportes
-                            </a>
-                        </li>
+                        </li> -->
                     </ul>
                     
                     <h2 class="text-ale-pink font-semibold text-xs uppercase tracking-wider mb-3 mt-6">Sistema</h2>
