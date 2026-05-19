@@ -9,7 +9,7 @@
     <!-- TailwindCSS v3 CDN -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
-<body class="welcome-page bg-gradient-purple min-h-screen">
+<body class="welcome-page min-h-screen">
 
     <!-- Contenedor principal -->
     <div class="min-h-screen flex flex-col">
