@@ -7,7 +7,7 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..28,300;12..28,400;12..28,500;12..28,600;12..28,700;12..28,800&family=Bungee&display=swap" rel="stylesheet">
     <!-- TailwindCSS v3 CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
 <body class="bg-gradient-purple min-h-screen">
 
@@ -22,7 +22,7 @@
 
                 <!-- Menú navegación escritorio -->
                 <nav class="hidden md:flex items-center gap-8">
-                    <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Inicar Sesion</a>
+                    <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Iniciar Sesion</a>
                     <a href="#" class="btn-descargar px-5 py-2 rounded-full font-semibold text-sm ">Descargar app</a>
                 </nav>
 
@@ -36,7 +36,7 @@
 
             <!-- Menú móvil desplegable -->
             <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-gray-800 py-4 px-6 flex flex-col gap-4">
-                 <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Inicar Sesion</a>
+                 <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Iniciar Sesion</a>
                     <a href="#" class="btn-descargar px-5 py-2 rounded-full font-semibold text-sm ">Descargar app</a>
             </div>
         </header>
