@@ -10,10 +10,9 @@
 
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-sm text-gray-400">
-        <i class="fas fa-home text-ale-pink"></i>
-        <span>Inicio</span>
-        <i class="fas fa-chevron-right text-xs"></i>
-        <span class="text-ale-pink">Dashboard</span>
+        <x-breadcrumbs :links="[
+            ['name' => 'Inicio', 'url' => route('home')]
+            ]" />
     </nav>
 
     <!-- Tarjeta de bienvenida -->

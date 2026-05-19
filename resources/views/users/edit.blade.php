@@ -9,23 +9,21 @@
 
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-sm text-gray-400 mb-6">
-        <a href="{{ route('home') }}" class="hover:text-ale-pink transition">
-            <i class="fas fa-home text-ale-pink"></i> Inicio
-        </a>
-        <i class="fas fa-chevron-right text-xs"></i>
-        <a href="#" class="hover:text-ale-pink transition">Usuarios</a>
-        <i class="fas fa-chevron-right text-xs"></i>
-        <span class="text-ale-pink">Editar Usuario</span>
+        <x-breadcrumbs :links="[
+        ['name' => 'Inicio', 'url' => route('home')],
+        ['name' => 'Usuarios', 'url' => route('users.index')],
+        ['name' => 'Editar']
+        ]" />
     </nav>
 
     <!-- Tarjeta del formulario -->
     <div class="bg-ale-surface border border-ale-border rounded-xl p-6">
         <h2 class="text-xl font-bold text-white mb-6 flex items-center gap-2">
             <i class="fas fa-user-edit text-ale-pink"></i>
-            Editar Usuario: {{ $users->name }}
+            Editar Usuario: {{ $user->name }}
         </h2>
 
-        <form method="POST" action="{{ route('users.update', $users->id) }}" class="space-y-5">
+        <form method="POST" action="{{ route('users.update', $user->id) }}" class="space-y-5">
             @csrf
             @method('PUT')
 
@@ -35,7 +33,7 @@
                     <i class="fas fa-user mr-2 text-ale-pink"></i>
                     Nombre completo
                 </label>
-                <input type="text" name="name" value="{{ old('name', $users->name) }}" placeholder="Ej: Juan Pérez"
+                <input type="text" name="name" value="{{ old('name', $user->name) }}" placeholder="Ej: Juan Pérez"
                     class="w-full p-3 rounded-lg bg-black/50 border border-ale-border text-white focus:border-ale-pink focus:outline-none transition">
                 @error('name')
                     <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
@@ -48,7 +46,7 @@
                     <i class="fas fa-envelope mr-2 text-ale-pink"></i>
                     Correo electrónico
                 </label>
-                <input type="email" name="email" value="{{ old('email', $users->email) }}" placeholder="ejemplo@correo.com"
+                <input type="email" name="email" value="{{ old('email', $user->email) }}" placeholder="ejemplo@correo.com"
                     class="w-full p-3 rounded-lg bg-black/50 border border-ale-border text-white focus:border-ale-pink focus:outline-none transition">
                 @error('email')
                     <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
@@ -76,8 +74,8 @@
                     Tipo de usuario
                 </label>
                 <select name="user_type" class="w-full p-3 rounded-lg bg-black/50 border border-ale-border text-white focus:border-ale-pink focus:outline-none transition">
-                    <option value="user" {{ $users->user_type == 'user' ? 'selected' : '' }}>Estudiante</option>
-                    <option value="admin" {{ $users->user_type == 'admin' ? 'selected' : '' }}>Administrador</option>
+                    <option value="user" {{ $user->user_type == 'user' ? 'selected' : '' }}>Estudiante</option>
+                    <option value="admin" {{ $user->user_type == 'admin' ? 'selected' : '' }}>Administrador</option>
                 </select>
                 @error('user_type')
                     <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
@@ -91,8 +89,8 @@
                     Estado
                 </label>
                 <select name="status" class="w-full p-3 rounded-lg bg-black/50 border border-ale-border text-white focus:border-ale-pink focus:outline-none transition">
-                    <option value="active" {{ ($users->status ?? 'active') == 'active' ? 'selected' : '' }}>Activo</option>
-                    <option value="inactive" {{ ($users->status ?? 'active') == 'inactive' ? 'selected' : '' }}>Inactivo</option>
+                    <option value="active" {{ ($user->status ?? 'active') == 'active' ? 'selected' : '' }}>Activo</option>
+                    <option value="inactive" {{ ($user->status ?? 'active') == 'inactive' ? 'selected' : '' }}>Inactivo</option>
                 </select>
                 @error('status')
                     <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
@@ -118,11 +116,11 @@
         <div class="flex items-center justify-between text-sm">
             <div class="text-gray-400">
                 <i class="fas fa-calendar-alt mr-2 text-ale-pink"></i>
-                Registrado: {{ $users->created_at ? $users->created_at->format('d/m/Y H:i') : 'N/A' }}
+                Registrado: {{ $user->created_at ? $user->created_at->format('d/m/Y H:i') : 'N/A' }}
             </div>
             <div class="text-gray-400">
                 <i class="fas fa-id-card mr-2 text-ale-pink"></i>
-                ID: {{ $users->id }}
+                ID: {{ $user->id }}
             </div>
         </div>
     </div>

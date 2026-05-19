@@ -4,22 +4,38 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-        public function index()
+    // LISTADO CON BUSQUEDA + PAGINACION
+    public function index(Request $request)
     {
-        $users = User::all();
+        $query = User::query();
+
+        if ($request->search) {
+            $query->where(function ($q) use ($request) {
+                $q->where('name', 'like', "%{$request->search}%")
+                  ->orWhere('email', 'like', "%{$request->search}%");
+            });
+        }
+
+        if ($request->status) {
+            $query->where('status', $request->status);
+        }
+
+        $users = $query->latest()->paginate(10)->withQueryString();
+
         return view('users.index', compact('users'));
-    
     }
 
+    // FORM CREATE
     public function create()
     {
         return view('users.create');
-    
     }
 
+    // GUARDAR
     public function store(Request $request)
     {
         $request->validate([
@@ -32,38 +48,32 @@ class UserController extends Controller
         User::create([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => bcrypt($request->password),
+            'password' => Hash::make($request->password),
             'user_type' => $request->user_type,
+            'status' => 'active',
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente');
     }
 
-        public function edit($id)
+    // EDIT (MODEL BINDING 🔥)
+    public function edit(User $user)
     {
-        $users = User::findOrFail($id);
-
-        return view('users.edit', compact('users'));
+        return view('users.edit', compact('user'));
     }
 
-     public function update(Request $request, $id)
+    // UPDATE
+    public function update(Request $request, User $user)
     {
-        $user = User::findOrFail($id);
-
         $request->validate([
             'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email,' . $user->id,
+            'email' => "required|email|unique:users,email,{$user->id}",
             'password' => 'nullable|min:8',
             'user_type' => 'required|in:user,admin',
             'status' => 'required|in:active,inactive',
         ]);
 
-        $data = [
-            'name' => $request->name,
-            'email' => $request->email,
-            'user_type' => $request->user_type,
-            'status' => $request->status,
-        ];
+        $data = $request->only(['name', 'email', 'user_type', 'status']);
 
         if ($request->filled('password')) {
             $data['password'] = Hash::make($request->password);
@@ -71,54 +81,68 @@ class UserController extends Controller
 
         $user->update($data);
 
-        return redirect()->route('users.index')->with('success', 'Usuario actualizado correctamente');
+        return redirect()->route('users.index')->with('success', 'Usuario actualizado');
     }
 
-        public function show($id)
+    // SHOW
+    public function show(User $user)
     {
-        $user = User::findOrFail($id);
         return view('users.show', compact('user'));
     }
 
-    public function destroy($id)
+    // DELETE
+    public function destroy(User $user)
     {
-       $user = User::findOrFail($id);
         $user->delete();
 
-        return redirect()->route('users.index')->with('success', 'Usuario eliminado correctamente');
+        return redirect()->route('users.index')->with('success', 'Usuario eliminado');
     }
 
-
-        public function bulkDelete(Request $request)
+    // BULK DELETE
+    public function bulkDelete(Request $request)
     {
-        $ids = $request->ids;
-        $deletedCount = User::whereIn('id', $ids)->delete();
-        
+        $request->validate([
+            'ids' => 'required|array',
+            'ids.*' => 'exists:users,id'
+        ]);
+
+        $deleted = User::whereIn('id', $request->ids)->delete();
+
         return response()->json([
             'success' => true,
-            'deletedCount' => $deletedCount
+            'deletedCount' => $deleted
         ]);
     }
 
+    // BULK ACTIVATE
     public function bulkActivate(Request $request)
     {
-        $ids = $request->ids;
-        $updatedCount = User::whereIn('id', $ids)->update(['status' => 'active']);
-        
+        $request->validate([
+            'ids' => 'required|array',
+            'ids.*' => 'exists:users,id'
+        ]);
+
+        $updated = User::whereIn('id', $request->ids)->update(['status' => 'active']);
+
         return response()->json([
             'success' => true,
-            'updatedCount' => $updatedCount
+            'updatedCount' => $updated
         ]);
     }
 
+    // BULK DEACTIVATE
     public function bulkDeactivate(Request $request)
     {
-        $ids = $request->ids;
-        $updatedCount = User::whereIn('id', $ids)->update(['status' => 'inactive']);
-        
+        $request->validate([
+            'ids' => 'required|array',
+            'ids.*' => 'exists:users,id'
+        ]);
+
+        $updated = User::whereIn('id', $request->ids)->update(['status' => 'inactive']);
+
         return response()->json([
             'success' => true,
-            'updatedCount' => $updatedCount
+            'updatedCount' => $updated
         ]);
     }
 }

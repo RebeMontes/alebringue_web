@@ -12,8 +12,7 @@
         <div>
           <x-breadcrumbs :links="[
             ['name' => 'Inicio', 'url' => route('home')],
-            ['name' => 'Usuarios'],
-            ['name' => 'Crear']
+            ['name' => 'Usuarios']
             ]" />
             <p class="text-ale-text-dim text-sm">Administra todos los usuarios de la plataforma</p>
         </div>

@@ -10,13 +10,11 @@
 
     <!-- Breadcrumb -->
     <nav class="flex items-center gap-2 text-sm text-gray-400 mb-6">
-        <a href="{{ route('home') }}" class="hover:text-ale-pink transition">
-            <i class="fas fa-home text-ale-pink"></i> Inicio
-        </a>
-        <i class="fas fa-chevron-right text-xs"></i>
-        <a href="#" class="hover:text-ale-pink transition">Usuarios</a>
-        <i class="fas fa-chevron-right text-xs"></i>
-        <span class="text-ale-pink">Crear Usuario</span>
+        <x-breadcrumbs :links="[
+        ['name' => 'Inicio', 'url' => route('home')],
+        ['name' => 'Usuarios', 'url' => route('users.index')],
+        ['name' => 'Crear']
+         ]" />
     </nav>
 
     <!-- Tarjeta del formulario -->

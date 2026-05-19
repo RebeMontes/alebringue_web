@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}" class="dark">
 <head>
@@ -54,7 +53,7 @@
         }
         
         body {
-            background-color: #19191c;
+            background-color: #131313;
             font-family: 'Bricolage Grotesque', system-ui, sans-serif;
             color: #FAF9F6;
             overflow-x: hidden;
@@ -68,12 +67,15 @@
             left: 0;
             bottom: 0;
             overflow-y: auto;
+            background: #19191c;
         }
         
         /* Contenido principal - ocupa todo el espacio restante */
         .main-content {
             min-height: 100vh;
             width: 100%;
+            display: flex;
+            flex-direction: column;
         }
         
         /* Sidebar links */
@@ -145,7 +147,7 @@
         /* Brand */
         .brand-logo {
             font-family: 'Bungee', cursive;
-            background: #E4007C ;
+            background: linear-gradient(135deg, #E4007C 0%, #E4007C 70%, #ff66b5 100%);
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -190,6 +192,17 @@
             border-color: #E4007C;
         }
         
+        /* Main content inner */
+        .main-content-inner {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        main {
+            flex: 1;
+        }
+        
         /* Ajustes responsivos */
         @media (max-width: 768px) {
             .sidebar {
@@ -202,6 +215,7 @@
             }
             .main-content {
                 margin-left: 0 !important;
+                width: 100% !important;
             }
         }
     </style>
@@ -213,12 +227,12 @@
     <div class="relative min-h-screen w-full">
         
         <!-- Sidebar Admin - altura completa -->
-        <aside class="sidebar w-64 bg-ale-surface border-r border-ale-border z-30 flex-shrink-0" style="height: 100vh; position: fixed; top: 0; left: 0; overflow-y: auto;">
+        <aside class="sidebar w-64 border-r border-ale-border z-30 flex-shrink-0">
             <div class="p-5">
                 <!-- Logo -->
                 <div class="mb-8 flex items-center justify-center">
-                    <a href="#" class="flex items-center space-x-2">
-                        <i class="fas text-ale-pink text-2xl"></i>
+                    <a href="{{ route('home') }}" class="flex items-center space-x-2">
+                        <i class="fas fa-microphone-alt text-ale-pink text-2xl"></i>
                         <span class="brand-logo text-xl font-bold">ALEBRINGÜE</span>
                     </a>
                 </div>
@@ -247,19 +261,9 @@
                         </li>
                         <li>
                             <a href="{{ route('users.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
-                                <i class="fas fa-users mr-3 w-4"></i> Gestion de Usuarios
+                                <i class="fas fa-users mr-3 w-4"></i> Gestión de Usuarios
                             </a>
                         </li>
-                        <li>
-                       <!--     <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
-                                <i class="fas fa-book mr-3 w-4"></i> Lecciones
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
-                                <i class="fas fa-layer-group mr-3 w-4"></i> Niveles
-                            </a>
-                        </li> -->
                     </ul>
                     
                     <h2 class="text-ale-pink font-semibold text-xs uppercase tracking-wider mb-3 mt-6">Sistema</h2>
@@ -269,10 +273,13 @@
                                 <i class="fas fa-cog mr-3 w-4"></i> Configuración
                             </a>
                         </li>
-                            <li class="border-t border-ale-border py-2">
-                            <a href="{{ route('logout') }}" class="sidebar-link block px-4 py-2 text-sm text-red-400 hover:text-red-300">
+                        <li class="border-t border-ale-border pt-2 mt-2">
+                            <a href="{{ route('logout') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm text-red-400 hover:text-red-300" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
                                 <i class="fas fa-sign-out-alt mr-3 w-4"></i> Cerrar Sesión
                             </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
                         </li>
                     </ul>
                 </nav>
@@ -299,7 +306,7 @@
                         </button>
                         <div class="text-right">
                             <p class="text-ale-text text-sm font-medium">{{ Auth::user()->name ?? 'Admin' }}</p>
-                            <p class="text-ale-text-dim text-xs">admin@alebringue.com</p>
+                            <p class="text-ale-text-dim text-xs">{{ Auth::user()->email ?? 'admin@alebringue.com' }}</p>
                         </div>
                         <div class="w-9 h-9 bg-gradient-to-r from-ale-pink to-pink-600 rounded-full flex items-center justify-center">
                             <i class="fas fa-user-shield text-white text-sm"></i>
@@ -308,9 +315,11 @@
                 </div>
             </header>
             
-            <!-- Main content - ocupa todo el ancho restante -->
-            <main class="p-6 w-full">
-                @yield('content')
+            <!-- Main content - ocupa todo el ancho restante y altura completa -->
+            <main class="p-6 w-full flex-1">
+                <div class="h-full">
+                    @yield('content')
+                </div>
             </main>
         </div>
     </div>
@@ -341,6 +350,23 @@
             const href = link.getAttribute('href');
             if (href && href !== '#' && window.location.pathname === href) {
                 link.classList.add('active');
+            }
+        });
+        
+        // Asegurar que el contenido tenga altura completa
+        document.addEventListener('DOMContentLoaded', function() {
+            const mainContent = document.querySelector('.main-content');
+            const main = document.querySelector('main');
+            
+            if (mainContent && main) {
+                const updateHeight = () => {
+                    const windowHeight = window.innerHeight;
+                    const headerHeight = document.querySelector('header')?.offsetHeight || 0;
+                    main.style.minHeight = (windowHeight - headerHeight - 48) + 'px';
+                };
+                
+                updateHeight();
+                window.addEventListener('resize', updateHeight);
             }
         });
     </script>

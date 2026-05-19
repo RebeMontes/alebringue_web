@@ -1,4 +1,4 @@
-{{-- resources/views/home/user_index.blade.php --}}
+
 @extends('layouts.user')
 
 @section('title', 'Mi Aprendizaje')
