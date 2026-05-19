@@ -1,10 +1,10 @@
- * {
+ .login-page * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
+    .login-page body {
       background-color: #131313; /* 0xFF131313 */
       font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       min-height: 100vh;
@@ -15,13 +15,13 @@
     }
 
     /* navbar superior */
-    .top-nav {
+    .login-page .top-nav {
       position: absolute;
       top: 20px;
       left: 20px;
     }
 
-    .back-link {
+    .login-page .back-link {
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -32,20 +32,20 @@
       transition: 0.2s;
     }
 
-    .back-link svg {
+    .login-page .back-link svg {
       transition: transform 0.2s;
     }
 
-    .back-link:hover {
+    .login-page .back-link:hover {
       color: #E4007C;
     }
 
-    .back-link:hover svg {
+    .login-page .back-link:hover svg {
       transform: translateX(-3px);
     }
 
     /* card principal */
-    .login-container {
+    .login-page .login-container {
       max-width: 480px;
       width: 100%;
       background: rgba(19, 19, 19, 0.85);
@@ -56,12 +56,12 @@
     }
 
     /* encabezado con Bungee */
-    .brand-header {
+    .login-page .brand-header {
       text-align: center;
       margin-bottom: 2rem;
     }
 
-    .brand-name {
+    .login-page .brand-name {
       font-family: 'Bungee', cursive;
       font-size: 2.2rem;
       letter-spacing: 0.02em;
@@ -74,7 +74,7 @@
       margin-bottom: 0.35rem;
     }
 
-    .sub-brand {
+    .login-page .sub-brand {
       font-size: 0.85rem;
       color: #FAF9F6;
       opacity: 0.7;
@@ -82,7 +82,7 @@
       letter-spacing: 0.5px;
     }
 
-    .accent-line {
+    .login-page .accent-line {
       width: 70px;
       height: 3px;
       background: #E4007C;
@@ -90,12 +90,12 @@
       border-radius: 10px;
     }
 
-    .auth-header {
+    .login-page .auth-header {
       text-align: center;
       margin-bottom: 1.8rem;
     }
 
-    .auth-title {
+    .login-page .auth-title {
       font-size: 1.75rem;
       font-weight: 700;
       color: #FAF9F6;
@@ -103,18 +103,18 @@
       margin-bottom: 0.5rem;
     }
 
-    .auth-description {
+    .login-page .auth-description {
       font-size: 0.95rem;
       color: rgba(250, 249, 246, 0.75);
       font-weight: 450;
     }
 
     /* formulario */
-    .form-group {
+    .login-page .form-group {
       margin-bottom: 1.5rem;
     }
 
-    .input-label {
+    .login-page .input-label {
       display: block;
       font-size: 0.85rem;
       font-weight: 600;
@@ -124,12 +124,12 @@
       margin-bottom: 0.5rem;
     }
 
-    .input-label span {
+    .login-page .input-label span {
       color: #E4007C;
       margin-left: 2px;
     }
 
-    .input-field {
+    .login-page .input-field {
       width: 100%;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.89);
@@ -143,24 +143,24 @@
       outline: none;
     }
 
-    .input-field:focus {
+    .login-page .input-field:focus {
       border-color: #E4007C;
       box-shadow: 0 0 0 3px rgba(228, 0, 124, 0.25);
       background: rgba(255, 255, 255, 0.1);
     }
 
-    .input-field::placeholder {
+    .login-page .input-field::placeholder {
       color: rgba(250, 249, 246, 0.4);
       font-weight: 400;
       font-size: 0.9rem;
     }
 
     /* wrapper para contraseña con botón de mostrar/ocultar */
-    .password-wrapper {
+    .login-page .password-wrapper {
       position: relative;
     }
 
-    .toggle-password {
+    .login-page .toggle-password {
       position: absolute;
       right: 1rem;
       top: 50%;
@@ -176,11 +176,11 @@
       transition: color 0.2s;
     }
 
-    .toggle-password:hover {
+    .login-page .toggle-password:hover {
       color: #E4007C;
     }
 
-    .forgot-link {
+    .login-page .forgot-link {
       display: inline-block;
       font-size: 0.75rem;
       font-weight: 600;
@@ -192,20 +192,20 @@
       border-bottom: 1px dashed rgba(228, 0, 124, 0.4);
     }
 
-    .forgot-link:hover {
+    .login-page .forgot-link:hover {
       color: #ff66b5;
       border-bottom-color: #E4007C;
     }
 
         /* enlace de login */
-    .register-section {
+    .login-page .register-section {
       text-align: center;
       margin-top: 1.8rem;
       font-size: 0.9rem;
       color: rgba(250, 249, 246, 0.7);
     }
 
-    .register-link {
+    .login-page .register-link {
       color: #E4007C;
       font-weight: 700;
       text-decoration: none;
@@ -214,21 +214,21 @@
       margin-left: 0.25rem;
     }
 
-    .checkbox-group {
+    .login-page .checkbox-group {
       display: flex;
       align-items: center;
       gap: 0.65rem;
       margin: 1.2rem 0 1.8rem;
     }
 
-    .checkbox-group input {
+    .login-page .checkbox-group input {
       width: 1.1rem;
       height: 1.1rem;
       accent-color: #E4007C;
       cursor: pointer;
     }
 
-    .checkbox-group label {
+    .login-page .checkbox-group label {
       color: #FAF9F6;
       font-size: 0.9rem;
       font-weight: 500;
@@ -236,7 +236,7 @@
       user-select: none;
     }
 
-    .btn-primary {
+    .login-page .btn-primary {
       width: 100%;
       background: #E4007C;
       border: none;
@@ -252,18 +252,18 @@
       box-shadow: 0 6px 14px rgba(228, 0, 124, 0.3);
     }
 
-    .btn-primary:hover {
+    .login-page .btn-primary:hover {
       background: #c2006b;
       transform: scale(0.98);
       box-shadow: 0 4px 10px rgba(228, 0, 124, 0.4);
     }
 
-    .btn-primary:active {
+    .login-page .btn-primary:active {
       transform: scale(0.96);
     }
 
     /* session status (mensajes desde backend) */
-    .session-status {
+    .login-page .session-status {
       text-align: center;
       background: rgba(228, 0, 124, 0.12);
       border-left: 3px solid #E4007C;
@@ -276,13 +276,13 @@
     }
 
     @media (max-width: 500px) {
-      .login-container {
+      .login-page .login-container {
         padding: 1.5rem;
       }
-      .brand-name {
+      .login-page .brand-name {
         font-size: 1.8rem;
       }
-      .auth-title {
+      .login-page .auth-title {
         font-size: 1.5rem;
       }
     }

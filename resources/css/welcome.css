@@ -1,22 +1,22 @@
         /* Fondo degradado morado */
-        .bg-gradient-purple {
+       .welcome-page .bg-gradient-purple {
             background: #000000
         }
         
-        .header{
+        .welcome-page .header{
             background: #19191c
         }
 
-        .btn-descargar {
+        .welcome-page .btn-descargar {
             background: #E4007C;
             color: white;
         }
 
-        .btn-empezar a {
+        .welcome-page .btn-empezar a {
             background: #E4007C;
         }
 
-        .name-ezq{
+        .welcome-page .name-ezq{
             background:#E4007C;
             font-size:1.50rem;
             background-clip:text;
@@ -25,7 +25,7 @@
             color:transparent;
         }
 
-        .brand-name {
+        .welcome-page .brand-name {
             font-family: 'Bungee', cursive;
             font-size: 5.2rem;
             letter-spacing: 0.02em;
@@ -39,13 +39,13 @@
         }
 
         /* Estilos para el carrusel */
-        .carousel-container {
+        .welcome-page .carousel-container {
             max-width: 500px;
             margin: 0 auto;
             perspective: 1000px;
         }
 
-        .carousel-slide {
+        .welcome-page .carousel-slide {
             background: rgba(255, 255, 255, 0.12);
             backdrop-filter: blur(12px);
             border-radius: 1.5rem;
@@ -55,17 +55,17 @@
             cursor: pointer;
         }
 
-        .carousel-slide:hover {
+        .welcome-page .carousel-slide:hover {
             background: rgba(255, 255, 255, 0.2);
             transform: scale(1.02);
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        .carousel-dot {
+        .welcome-page .carousel-dot {
             transition: all 0.2s ease;
         }
 
-        .carousel-dot.active {
+        .welcome-page .carousel-dot.active {
             background-color: white;
             transform: scale(1.2);
         }
@@ -81,31 +81,31 @@
             }
         }
 
-        .carousel-slide {
+        .welcome-page .carousel-slide {
             animation: fadeInUp 0.5s ease-out;
         }
 
         @media (max-width: 640px) {
-            .brand-name {
+            .welcome-page .brand-name {
                 font-size: 3.5rem;
             }
-            .carousel-slide {
+            .welcome-page .carousel-slide {
                 padding: 0.75rem 1.25rem;
             }
-            .carousel-slide h3 {
+            .welcome-page .carousel-slide h3 {
                 font-size: 1.1rem;
             }
-            .carousel-slide p {
+            .welcome-page .carousel-slide p {
                 font-size: 0.85rem;
             }
         }
 
         @media (max-width: 480px) {
-            .brand-name {
+            .welcome-page .brand-name {
                 font-size: 2.8rem;
             }
         }
 
-        footer {
+        .welcome-page footer {
             background: #19191c;
         }
