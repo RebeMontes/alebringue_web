@@ -3,6 +3,7 @@
 @tailwind utilities;
 
 /* WELCOME*/
+/* 
        .welcome-page {
             background: #000000
         }
@@ -43,6 +44,7 @@
         }
 
         /* Estilos para el carrusel */
+        /*
         .welcome-page .carousel-container {
             max-width: 500px;
             margin: 0 auto;
@@ -112,7 +114,7 @@
 
         .welcome-page footer {
             background: #19191c;
-        }
+        } */
 
 /* LOGIN */
  * {
