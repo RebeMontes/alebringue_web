@@ -115,13 +115,13 @@
         }
 
 /* LOGIN */
- .login-page * {
+ * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    .login-page body {
+     body {
       background-color: #131313; /* 0xFF131313 */
       font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       min-height: 100vh;
@@ -405,13 +405,13 @@
     }
 
 /* REGISTER */
- .register-page * {
+ * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    .register-page body {
+     body {
       background-color: #131313; /* 0xFF131313 */
       font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       min-height: 100vh;
