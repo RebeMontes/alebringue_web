@@ -4,122 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alebringue | Domina tu pronunciación de inglés</title>
-    <style>
-           .bg-gradient-purple { 
-        background: #000000
-     }
-        .header{
-            background: #19191c
-        }
-
-        .btn-descargar {
-            background: #E4007C;
-            color: white;
-        }
-
-         .btn-empezar a {
-            background: #E4007C;
-        }
-
-        .name-ezq{
-            background:#E4007C;
-            font-size:1.50rem;
-            background-clip:text;
-            font-family:'Bungee', cursive;
-            -webkit-background-clip:text;
-            color:transparent;
-        }
-
-        .brand-name {
-            font-family: 'Bungee', cursive;
-            font-size: 5.2rem;
-            letter-spacing: 0.02em;
-            background: #E4007C;
-            background-clip: text;
-            -webkit-background-clip: text;
-            color: transparent;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-            display: inline-block;
-            margin-bottom: 0.35rem;
-        }
-
-        /* Estilos para el carrusel */
-        .carousel-container {
-            max-width: 500px;
-            margin: 0 auto;
-            perspective: 1000px;
-        }
-
-        .carousel-slide {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(12px);
-            border-radius: 1.5rem;
-            padding: 1rem 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            transition: all 0.3s ease;
-            cursor: pointer;
-        }
-
-        .carousel-slide:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: scale(1.02);
-            border-color: rgba(255, 255, 255, 0.4);
-        }
-
-         .carousel-dot {
-            transition: all 0.2s ease;
-        }
-
-        .carousel-dot.active {
-            background-color: white;
-            transform: scale(1.2);
-        }
-
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-         .carousel-slide {
-            animation: fadeInUp 0.5s ease-out;
-        }
-
-        @media (max-width: 640px) {
-             .brand-name {
-                font-size: 3.5rem;
-            }
-             .carousel-slide {
-                padding: 0.75rem 1.25rem;
-            }
-             .carousel-slide h3 {
-                font-size: 1.1rem;
-            }
-             .carousel-slide p {
-                font-size: 0.85rem;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .brand-name {
-                font-size: 2.8rem;
-            }
-        }
-
-       footer {
-            background: #19191c;
-        }
-    </style>
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..28,300;12..28,400;12..28,500;12..28,600;12..28,700;12..28,800&family=Bungee&display=swap" rel="stylesheet">
     <!-- TailwindCSS v3 CDN -->
     <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
-<body class="bg-gradient-purple min-h-screen">
+<body class="welcome-page ">
 
     <!-- Contenedor principal -->
     <div class="min-h-screen flex flex-col">
@@ -160,6 +50,18 @@
                 </h1>
                 
                 
+                <!-- Subtítulo -->
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white mt-2 mb-6">
+                    Domina tu pronunciación de inglés
+                </h2>
+                
+                <!-- Descripción -->
+                <p class="text-lg md:text-xl text-gray-200 max-w-2xl mx-auto leading-relaxed">
+                    La plataforma diseñada para estudiantes que buscan hablar con confianza
+                </p>
+                
+                <!-- Botón Empezar - Negro con letras blancas -->
+                <div class="btn-empezar">
                     <a href="#" class="inline-block bg-black text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-0.5">
                         Empezar
                     </a>
