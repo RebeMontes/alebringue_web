@@ -3,7 +3,117 @@
 @tailwind utilities;
 
 /* WELCOME*/
-@import './welcome.css';
+        /* Fondo degradado morado */
+       .welcome-page .bg-gradient-purple {
+            background: #000000
+        }
+        
+        .welcome-page .header{
+            background: #19191c
+        }
+
+        .welcome-page .btn-descargar {
+            background: #E4007C;
+            color: white;
+        }
+
+        .welcome-page .btn-empezar a {
+            background: #E4007C;
+        }
+
+        .welcome-page .name-ezq{
+            background:#E4007C;
+            font-size:1.50rem;
+            background-clip:text;
+            font-family:'Bungee', cursive;
+            -webkit-background-clip:text;
+            color:transparent;
+        }
+
+        .welcome-page .brand-name {
+            font-family: 'Bungee', cursive;
+            font-size: 5.2rem;
+            letter-spacing: 0.02em;
+            background: #E4007C;
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            margin-bottom: 0.35rem;
+        }
+
+        /* Estilos para el carrusel */
+        .welcome-page .carousel-container {
+            max-width: 500px;
+            margin: 0 auto;
+            perspective: 1000px;
+        }
+
+        .welcome-page .carousel-slide {
+            background: rgba(255, 255, 255, 0.12);
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            padding: 1rem 1.5rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .welcome-page .carousel-slide:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.02);
+            border-color: rgba(255, 255, 255, 0.4);
+        }
+
+        .welcome-page .carousel-dot {
+            transition: all 0.2s ease;
+        }
+
+        .welcome-page .carousel-dot.active {
+            background-color: white;
+            transform: scale(1.2);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .welcome-page .carousel-slide {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        @media (max-width: 640px) {
+            .welcome-page .brand-name {
+                font-size: 3.5rem;
+            }
+            .welcome-page .carousel-slide {
+                padding: 0.75rem 1.25rem;
+            }
+            .welcome-page .carousel-slide h3 {
+                font-size: 1.1rem;
+            }
+            .welcome-page .carousel-slide p {
+                font-size: 0.85rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .welcome-page .brand-name {
+                font-size: 2.8rem;
+            }
+        }
+
+        .welcome-page footer {
+            background: #19191c;
+        }
 
 /* LOGIN */
 @import './auth/login.css';
