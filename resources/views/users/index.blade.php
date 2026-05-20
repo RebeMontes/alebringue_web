@@ -127,9 +127,7 @@
                         <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Usuario</th>
                         <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Correo electrónico</th>
                         <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Tipo</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Estado</th>
                         <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Fecha de registro</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Progreso</th>
                         <th class="px-4 py-4 text-center text-xs font-semibold text-ale-pink uppercase tracking-wider">Acciones</th>
                     </tr>
                 </thead>
@@ -169,24 +167,24 @@
                                 </span>
                             @endif
                         </td>
-                        <td class="px-4 py-4 align-middle">
+                        <!-- <td class="px-4 py-4 align-middle">
                             <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold {{ ($user->status ?? 'active') == 'active' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400' }}">
                                 <i class="fas {{ ($user->status ?? 'active') == 'active' ? 'fa-check-circle' : 'fa-times-circle' }} text-xs"></i>
                                 {{ ($user->status ?? 'active') == 'active' ? 'Activo' : 'Inactivo' }}
                             </span>
-                        </td>
+                        </td> -->
                         <td class="px-4 py-4 align-middle">
                             <div class="flex flex-col">
                                 <span class="text-ale-text text-sm">{{ $user->created_at ? $user->created_at->format('d/m/Y') : 'N/A' }}</span>
                                 <span class="text-xs text-ale-text-dim">{{ $user->created_at ? $user->created_at->format('H:i') : '' }}</span>
                             </div>
                         </td>
-                        <td class="px-4 py-4 align-middle">
+                        <!-- <td class="px-4 py-4 align-middle">
                             <div class="min-w-[120px]">
                                 <div class="flex justify-between text-xs text-ale-text-dim mb-1.5">
                                     <span>Progreso</span>
                                     <span class="font-medium text-ale-pink">{{ $user->progress ?? 0 }}%</span>
-                                </div>
+                                </div> -->
                                 <div class="progress-bar h-2">
                                     <div class="progress-fill" style="width: {{ $user->progress ?? 0 }}%"></div>
                                 </div>
@@ -235,12 +233,12 @@
     <div id="bulk-actions" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-ale-surface border border-ale-border rounded-xl shadow-xl p-3 flex items-center gap-4 z-50 hidden">
         <span id="selected-count" class="text-ale-text text-sm">0 seleccionados</span>
         <div class="h-6 w-px bg-ale-border"></div>
-        <button id="bulk-activate" class="text-green-400 hover:text-green-300 transition text-sm flex items-center gap-2">
+        <!-- <button id="bulk-activate" class="text-green-400 hover:text-green-300 transition text-sm flex items-center gap-2">
             <i class="fas fa-check-circle"></i> Activar
         </button>
         <button id="bulk-deactivate" class="text-yellow-400 hover:text-yellow-300 transition text-sm flex items-center gap-2">
             <i class="fas fa-ban"></i> Desactivar
-        </button>
+        </button> -->
         <button id="bulk-delete" class="text-red-400 hover:text-red-300 transition text-sm flex items-center gap-2">
             <i class="fas fa-trash"></i> Eliminar
         </button>
@@ -282,7 +280,7 @@
             <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación masiva</h3>
+            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación</h3>
         </div>
         <p class="text-ale-text-dim mb-6">
             ¿Estás seguro de que deseas eliminar <strong id="bulk-delete-count" class="text-ale-pink"></strong> usuario(s)?

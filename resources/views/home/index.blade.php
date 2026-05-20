@@ -86,6 +86,26 @@
                 <i class="fas fa-users"></i>
                 Gestión de Usuarios
             </a>
+
+            <a href="{{ route('lessons.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+                <i class="fas fa-book"></i>
+                Lecciones
+            </a>
+
+            <a href="{{ route('levels.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+                <i class="fas fa-level-up-alt"></i>
+                Niveles
+            </a>
+
+            <a href="{{ route('words.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+                <i class="fas fa-font"></i>
+                Palabras
+            </a>
+
+            <a href="{{ route('categories.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+                <i class="fas fa-tags"></i>
+                Categorías
+            </a>
             
             <a href="#" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
                 <i class="fas fa-cog"></i>

@@ -61,11 +61,11 @@
                 </p>
                 
                 <!-- Botón Empezar - Negro con letras blancas -->
-                <div class="btn-empezar">
+                <!-- <div class="btn-empezar">
                     <a href="#" class="inline-block bg-black text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-0.5">
                         Empezar
                     </a>
-                </div>
+                </div> -->
                  <!-- ==================== CARRUSEL INFORMATIVO ==================== -->
                 <div class="carousel-container my-6">
                     <div id="carouselSlide" class="carousel-slide">

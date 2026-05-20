@@ -147,7 +147,7 @@
         /* Brand */
         .brand-logo {
             font-family: 'Bungee', cursive;
-            background: linear-gradient(135deg, #E4007C 0%, #E4007C 70%, #ff66b5 100%);
+            background: #E4007C ;
             background-clip: text;
             -webkit-background-clip: text;
             color: transparent;
@@ -232,7 +232,7 @@
                 <!-- Logo -->
                 <div class="mb-8 flex items-center justify-center">
                     <a href="{{ route('home') }}" class="flex items-center space-x-2">
-                        <i class="fas fa-microphone-alt text-ale-pink text-2xl"></i>
+                        <i class="fas  text-ale-pink text-2xl"></i>
                         <span class="brand-logo text-xl font-bold">ALEBRINGÜE</span>
                     </a>
                 </div>
@@ -266,6 +266,30 @@
                         </li>
                     </ul>
                     
+                    <h2 class="text-ale-pink font-semibold text-xs uppercase tracking-wider mb-3">Labores</h2>
+                    <ul class="space-y-1 mb-6">
+                        <li>
+                            <a href="{{ route('lessons.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                                <i class="fas fa-book mr-3 w-4"></i> Lecciones
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{{ route('levels.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                                <i class="fas fa-level-up-alt mr-3 w-4"></i> Niveles
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                                <i class="fas fa-font mr-3 w-4"></i> Palabras
+                            </a>
+                        </li>
+                         <li>
+                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                                <i class="fas fa-tags mr-3 w-4"></i> Categorías
+                            </a>
+                        </li>
+                    </ul>
+
                     <h2 class="text-ale-pink font-semibold text-xs uppercase tracking-wider mb-3 mt-6">Sistema</h2>
                     <ul class="space-y-1">
                         <li>
