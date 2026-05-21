@@ -84,6 +84,85 @@
             </div>
         </main>
 
+        <!-- ==================== SECCIÓN DEMO APP ==================== -->
+        <section class="bg-black py-20">
+            <div class="max-w-6xl mx-auto px-6 space-y-20">
+
+                <!-- PANTALLA 1 -->
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- Imagen -->
+                    <div class="flex justify-center">
+                        <img src="/images/app/home.jpg" class="w-64 rounded-3xl shadow-2xl">
+                    </div>
+
+                    <!-- Texto -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">🏠 Inicio</h3>
+                        <p class="text-gray-300 text-lg">
+                            Visualiza tu progreso diario, racha de aprendizaje y motivación para seguir practicando inglés todos los días.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PANTALLA 2 -->
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- Texto -->
+                    <div class="order-2 md:order-1">
+                        <h3 class="text-3xl font-bold text-white mb-4">📚 Lecciones</h3>
+                        <p class="text-gray-300 text-lg">
+                            Aprende inglés con lecciones interactivas adaptadas a tu nivel y mejora tu pronunciación paso a paso.
+                        </p>
+                    </div>
+
+                    <!-- Imagen -->
+                    <div class="flex justify-center order-1 md:order-2">
+                        <img src="/images/app/lessons.jpg" class="w-64 rounded-3xl shadow-2xl">
+                    </div>
+                </div>
+
+                <!-- PANTALLA 3 -->
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- Imagen -->
+                    <div class="flex justify-center">
+                        <img src="/images/app/classes.jpg" class="w-64 rounded-3xl shadow-2xl">
+                    </div>
+
+                    <!-- Texto -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">👨‍🏫 Clases</h3>
+                        <p class="text-gray-300 text-lg">
+                            Únete a clases en vivo con profesores y practica en tiempo real con otros estudiantes.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- PANTALLA 4 -->
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- Texto -->
+                    <div class="order-2 md:order-1">
+                        <h3 class="text-3xl font-bold text-white mb-4">🎤 Bringüi</h3>
+                        <p class="text-gray-300 text-lg">
+                            Habla con nuestra IA y mejora tu pronunciación con retroalimentación en tiempo real.
+                        </p>
+                    </div>
+
+                    <!-- Imagen -->
+                    <div class="flex justify-center order-1 md:order-2 relative">
+                        <img src="/images/app/ai.jpg" class="w-64 rounded-3xl shadow-2xl">
+
+                        <!-- Mascota -->
+                        <img src="/images/mascot.png" 
+                            class="absolute -right-10 bottom-0 w-24 animate-bounce">
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
         <!-- ==================== FOOTER ==================== -->
         <footer class="py-4">
             <div class="max-w-6xl mx-auto px-6">
