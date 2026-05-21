@@ -49,8 +49,7 @@ class UserController extends Controller
             'name' => $request->name,
             'email' => $request->email,
             'password' => Hash::make($request->password),
-            'user_type' => $request->user_type,
-            'status' => 'active',
+            'user_type' => $request->user_type
         ]);
 
         return redirect()->route('users.index')->with('success', 'Usuario creado correctamente');
@@ -65,12 +64,12 @@ class UserController extends Controller
     // UPDATE
     public function update(Request $request, User $user)
     {
+        
         $request->validate([
             'name' => 'required|string|max:255',
             'email' => "required|email|unique:users,email,{$user->id}",
             'password' => 'nullable|min:8',
-            'user_type' => 'required|in:user,admin',
-            'status' => 'required|in:active,inactive',
+            'user_type' => 'required|in:user,admin'
         ]);
 
         $data = $request->only(['name', 'email', 'user_type', 'status']);
