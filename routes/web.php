@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\EnglishLevelController;
+use App\Http\Controllers\ClassController;
+
 use App\Http\Controllers\WordController;
 use App\Http\Controllers\CategoryController;
 
@@ -75,10 +77,22 @@ Route::middleware(['auth', 'user_type:admin'])->group(function () {
     // Bulk operations
     Route::post('/users/bulk-delete', [UserController::class, 'bulkDelete'])->name('users.bulk-delete');
 
+
+ // ADMIN - Salones
+    Route::get('/classrooms', [ClassController::class, 'index'])->name('classrooms.index');
+    Route::get('/classrooms/create', [ClassController::class, 'create'])->name('classrooms.create');
+    Route::post('/classrooms', [ClassController::class, 'store'])->name('classrooms.store');
+    Route::get('/classrooms/{classroom}/edit', [ClassController::class, 'edit'])->name('classrooms.edit');
+    Route::put('/classrooms/{classroom}', [ClassController::class, 'update'])->name('classrooms.update');
+    Route::get('/classrooms/{classroom}', [ClassController::class, 'show'])->name('classrooms.show');
+    Route::delete('/classrooms/{classroom}', [ClassController::class, 'destroy'])->name('classrooms.destroy');
 });
 
-// USER
+// USER - Clases (usuario normal)
 Route::middleware(['auth', 'user_type:user'])->group(function () {
+    Route::get('/clases', [ClassController::class, 'userIndex'])->name('classrooms.user');
+    Route::post('/clases/unirse', [ClassController::class, 'join'])->name('classrooms.join');
+    Route::get('/clases/{classroom}/aula', [ClassController::class, 'enter'])->name('classrooms.enter');
     Route::get('/lessons', [LessonController::class, 'lessonPage'])->name('lessons.page');
     Route::get('/lessons/{lesson}', [LessonController::class, 'lessonContentPage'])->name('lessons.content');
 

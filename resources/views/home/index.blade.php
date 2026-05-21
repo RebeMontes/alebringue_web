@@ -97,7 +97,12 @@
                 NIVELES
             </a>
 
-            <a href="{{ route('words.index') }}" class="bg-[#E0007C] hover:bg-[#00E5FF] text-white font-bungee text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
+            <a href="{{ route('classrooms.index') }}" class="bg-[#E0007C] hover:bg-[#00E5FF] text-white font-bungee text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
+                <i class="fas fa-chalkboard"></i>
+                CLASES 
+            </a>
+
+           <a href="{{ route('words.index') }}" class="bg-[#E0007C] hover:bg-[#00E5FF] text-white font-bungee text-sm px-5 py-2.5 rounded-lg transition flex items-center gap-2">
                 <i class="fas fa-font"></i>
                 PALABRAS
             </a>

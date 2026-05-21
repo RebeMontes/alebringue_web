@@ -286,6 +286,11 @@
                             </a>
                         </li>
                         <li>
+                            <a href="{{ route('classrooms.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                                <i class="fas fa-chalkboard-teacher mr-3 w-4"></i> Clases
+                            </a>
+                        </li>
+                        <li>
                             <a href="{{ route('words.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
                                 <i class="fas fa-font mr-3 w-4"></i> Palabras
                             </a>
