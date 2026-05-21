@@ -22,6 +22,10 @@ class User extends Authenticatable
      *
      * @return array<string, string>
      */
+
+    public $incrementing = false;
+    protected $keyType = 'string';
+
     protected function casts(): array
     {
         return [
