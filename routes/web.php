@@ -7,7 +7,6 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\EnglishLevelController;
 use App\Http\Controllers\ClassController;
-
 use App\Http\Controllers\WordController;
 use App\Http\Controllers\CategoryController;
 
@@ -93,7 +92,7 @@ Route::middleware(['auth', 'user_type:user'])->group(function () {
     Route::get('/clases', [ClassController::class, 'userIndex'])->name('classrooms.user');
     Route::post('/clases/unirse', [ClassController::class, 'join'])->name('classrooms.join');
     Route::get('/clases/{classroom}/aula', [ClassController::class, 'enter'])->name('classrooms.enter');
-    Route::get('/lessons', [LessonController::class, 'lessonPage'])->name('lessons.page');
-    Route::get('/lessons/{lesson}', [LessonController::class, 'lessonContentPage'])->name('lessons.content');
+    Route::get('/user/lessons', [LessonController::class, 'lessonPage'])->name('lessons.page');
+    Route::get('/user/lessons/{lesson}', [LessonController::class, 'lessonContentPage'])->name('lessons.content');
 
 });
