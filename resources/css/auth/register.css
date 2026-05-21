@@ -1,10 +1,10 @@
- * {
+ .register-page * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
 
-    body {
+    .register-page body {
       background-color: #131313; /* 0xFF131313 */
       font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
       min-height: 100vh;
@@ -15,13 +15,13 @@
     }
 
     /* navbar superior */
-    .top-nav {
+    .register-page .top-nav {
       position: absolute;
       top: 20px;
       left: 20px;
     }
 
-    .back-link {
+    .register-page .back-link {
       display: flex;
       align-items: center;
       gap: 0.4rem;
@@ -32,20 +32,20 @@
       transition: 0.2s;
     }
 
-    .back-link svg {
+    .register-page .back-link svg {
       transition: transform 0.2s;
     }
 
-    .back-link:hover {
+    .register-page .back-link:hover {
       color: #E4007C;
     }
 
-    .back-link:hover svg {
+    .register-page .back-link:hover svg {
       transform: translateX(-3px);
     }
 
     /* card principal */
-    .register-container {
+      .register-page .register-container {
       max-width: 520px;
       width: 100%;
       background: rgba(19, 19, 19, 0.85);
@@ -56,12 +56,12 @@
     }
 
     /* encabezado con Bungee */
-    .brand-header {
+    .register-page .brand-header {
       text-align: center;
       margin-bottom: 2rem;
     }
 
-    .brand-name {
+    .register-page .brand-name {
       font-family: 'Bungee', cursive;
       font-size: 2.2rem;
       letter-spacing: 0.02em;
@@ -74,7 +74,7 @@
       margin-bottom: 0.35rem;
     }
 
-    .sub-brand {
+    .register-page .sub-brand {
       font-size: 0.85rem;
       color: #FAF9F6;
       opacity: 0.7;
@@ -82,7 +82,7 @@
       letter-spacing: 0.5px;
     }
 
-    .accent-line {
+    .register-page .accent-line {
       width: 70px;
       height: 3px;
       background: #E4007C;
@@ -90,12 +90,12 @@
       border-radius: 10px;
     }
 
-    .auth-header {
+    .register-page .auth-header {
       text-align: center;
       margin-bottom: 1.8rem;
     }
 
-    .auth-title {
+    .register-page .auth-title {
       font-size: 1.75rem;
       font-weight: 700;
       color: #FAF9F6;
@@ -103,18 +103,18 @@
       margin-bottom: 0.5rem;
     }
 
-    .auth-description {
+    .register-page .auth-description {
       font-size: 0.95rem;
       color: rgba(250, 249, 246, 0.75);
       font-weight: 450;
     }
 
     /* formulario */
-    .form-group {
+    .register-page .form-group {
       margin-bottom: 1.5rem;
     }
 
-    .input-label {
+    .register-page .input-label {
       display: block;
       font-size: 0.75rem;
       font-weight: 700;
@@ -124,12 +124,12 @@
       margin-bottom: 0.5rem;
     }
 
-    .input-label span {
+    .register-page .input-label span {
       color: #E4007C;
       margin-left: 2px;
     }
 
-    .input-field {
+    .register-page .input-field {
       width: 100%;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid rgba(255, 255, 255, 0.89);
@@ -143,24 +143,24 @@
       outline: none;
     }
 
-    .input-field:focus {
+    .register-page .input-field:focus {
       border-color: #E4007C;
       box-shadow: 0 0 0 3px rgba(228, 0, 124, 0.25);
       background: rgba(255, 255, 255, 0.1);
     }
 
-    .input-field::placeholder {
+    .register-page .input-field::placeholder {
       color: rgba(250, 249, 246, 0.4);
       font-weight: 400;
       font-size: 0.9rem;
     }
 
     /* wrapper para contraseña con botón de mostrar/ocultar */
-    .password-wrapper {
+    .register-page .password-wrapper {
       position: relative;
     }
 
-    .toggle-password {
+    .register-page .toggle-password {
       position: absolute;
       right: 1rem;
       top: 50%;
@@ -176,12 +176,12 @@
       transition: color 0.2s;
     }
 
-    .toggle-password:hover {
+    .register-page .toggle-password:hover {
       color: #E4007C;
     }
 
     /* Botón principal */
-    .btn-primary {
+    .register-page .btn-primary {
       width: 100%;
       background: #E4007C;
       border: none;
@@ -197,18 +197,18 @@
       box-shadow: 0 6px 14px rgba(228, 0, 124, 0.3);
     }
 
-    .btn-primary:hover {
+    .register-page .btn-primary:hover {
       background: #c2006b;
       transform: scale(0.98);
       box-shadow: 0 4px 10px rgba(228, 0, 124, 0.4);
     }
 
-    .btn-primary:active {
+    .register-page .btn-primary:active {
       transform: scale(0.96);
     }
 
     /* session status (mensajes desde backend) */
-    .session-status {
+    .register-page .session-status {
       text-align: center;
       background: rgba(228, 0, 124, 0.12);
       border-left: 3px solid #E4007C;
@@ -221,14 +221,14 @@
     }
 
     /* enlace de login */
-    .login-section {
+    .register-page .login-section {
       text-align: center;
       margin-top: 1.8rem;
       font-size: 0.9rem;
       color: rgba(250, 249, 246, 0.7);
     }
 
-    .login-link {
+    .register-page .login-link {
       color: #E4007C;
       font-weight: 700;
       text-decoration: none;
@@ -237,19 +237,19 @@
       margin-left: 0.25rem;
     }
 
-    .login-link:hover {
+    .register-page .login-link:hover {
       color: #ff66b5;
       border-bottom-color: #E4007C;
     }
 
     @media (max-width: 550px) {
-      .register-container {
+      .register-page .register-container {
         padding: 1.5rem;
       }
-      .brand-name {
+      .register-page .brand-name {
         font-size: 1.8rem;
       }
-      .auth-title {
+      .register-page .auth-title {
         font-size: 1.5rem;
       }
     }

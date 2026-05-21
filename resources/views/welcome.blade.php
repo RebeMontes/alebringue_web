@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Alebringue | Domina tu pronunciación de inglés</title>
-    @vite('resources/css/welcome.css')
+    @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..28,300;12..28,400;12..28,500;12..28,600;12..28,700;12..28,800&family=Bungee&display=swap" rel="stylesheet">
     <!-- TailwindCSS v3 CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
 </head>
-<body class="bg-gradient-purple min-h-screen">
+<body class="welcome-page ">
 
     <!-- Contenedor principal -->
     <div class="min-h-screen flex flex-col">
@@ -22,7 +22,7 @@
 
                 <!-- Menú navegación escritorio -->
                 <nav class="hidden md:flex items-center gap-8">
-                    <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Inicar Sesion</a>
+                    <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Iniciar Sesion</a>
                     <a href="#" class="btn-descargar px-5 py-2 rounded-full font-semibold text-sm ">Descargar app</a>
                 </nav>
 
@@ -36,12 +36,8 @@
 
             <!-- Menú móvil desplegable -->
             <div id="mobileMenu" class="hidden md:hidden bg-black border-t border-gray-800 py-4 px-6 flex flex-col gap-4">
-                <a href="#" class="text-white hover:text-gray-300 py-1">inicio</a>
-                <a href="#" class="text-white hover:text-gray-300 py-1">características</a>
-                <div class="flex items-center gap-1 text-white py-1">niveles <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-                <a href="#" class="text-white hover:text-gray-300 py-1">función</a>
-                <div class="flex items-center gap-1 text-white py-1">recursos <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg></div>
-                <a href="#" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-center mt-2">iniciar sesión</a>
+                 <a href="{{ route('login') }}" class="bg-white text-black px-5 py-2 rounded-full font-semibold text-sm hover:bg-gray-200 transition-all ml-2">Iniciar Sesion</a>
+                    <a href="#" class="btn-descargar px-5 py-2 rounded-full font-semibold text-sm ">Descargar app</a>
             </div>
         </header>
 
@@ -65,11 +61,11 @@
                 </p>
                 
                 <!-- Botón Empezar - Negro con letras blancas -->
-                <div class="btn-empezar">
+                <!-- <div class="btn-empezar">
                     <a href="#" class="inline-block bg-black text-white px-8 py-3 rounded-full font-bold text-lg shadow-lg hover:bg-gray-800 transition-all hover:shadow-xl hover:-translate-y-0.5">
                         Empezar
                     </a>
-                </div>
+                </div> -->
                  <!-- ==================== CARRUSEL INFORMATIVO ==================== -->
                 <div class="carousel-container my-6">
                     <div id="carouselSlide" class="carousel-slide">
@@ -232,3 +228,4 @@
     </script>
 </body>
 </html>
+
