@@ -9,6 +9,7 @@ use App\Http\Controllers\EnglishLevelController;
 use App\Http\Controllers\ClassController;
 use App\Http\Controllers\WordController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TranslatorController;
 
 // Públicas
 Route::get('/', function () {
@@ -24,7 +25,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/traductor', [TranslatorController::class, 'index'])->name('translator.index');
+    Route::post('/traductor/translate', [TranslatorController::class, 'translate'])->name('translator.translate');
 });
 
 // ADMIN
