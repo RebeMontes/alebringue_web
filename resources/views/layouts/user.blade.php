@@ -255,6 +255,7 @@
                 <nav class="hidden md:flex items-center space-x-6">
                     <a href="{{ route('home') }}" class="text-ale-text-dim hover:text-ale-pink transition">Inicio</a>
                     <a href="{{ route('levels.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Niveles</a>
+                    <a href="{{ route('classrooms.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Clases</a>
                     <a href="{{ route('lessons.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Lecciones</a>
                     <a href="{{ route('translator.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Traductor</a>
                 </nav>
@@ -342,6 +343,10 @@
                                     <i class="fas fa-layer-group mr-3 w-5"></i> Niveles
                                 </a>
                             </li>
+                            <li>
+                                <a href="{{ route('classrooms.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-chalkboard-teacher mr-3 w-5"></i> Clases
+                                </a>
                             <li>
                                 <a href="{{ route('lessons.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
                                     <i class="fas fa-chalkboard-user mr-3 w-5"></i> Lecciones
