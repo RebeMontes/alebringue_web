@@ -93,7 +93,7 @@
                     
                     <!-- Imagen -->
                     <div class="flex justify-center">
-                        <img src="/images/app/home.jpg" class="w-64 rounded-3xl shadow-2xl">
+                        <img src="/images/home.jpeg" class="w-64 rounded-3xl shadow-2xl">
                     </div>
 
                     <!-- Texto -->
@@ -118,7 +118,7 @@
 
                     <!-- Imagen -->
                     <div class="flex justify-center order-1 md:order-2">
-                        <img src="/images/app/lessons.jpg" class="w-64 rounded-3xl shadow-2xl">
+                        <img src="/images/lessons.jpeg" class="w-64 rounded-3xl shadow-2xl">
                     </div>
                 </div>
 
@@ -127,7 +127,7 @@
                     
                     <!-- Imagen -->
                     <div class="flex justify-center">
-                        <img src="/images/app/classes.jpg" class="w-64 rounded-3xl shadow-2xl">
+                        <img src="/images/classes.jpeg" class="w-64 rounded-3xl shadow-2xl">
                     </div>
 
                     <!-- Texto -->
@@ -152,11 +152,29 @@
 
                     <!-- Imagen -->
                     <div class="flex justify-center order-1 md:order-2 relative">
-                        <img src="/images/app/ai.jpg" class="w-64 rounded-3xl shadow-2xl">
+                        <img src="/images/ai.jpeg" class="w-64 rounded-3xl shadow-2xl">
 
                         <!-- Mascota -->
-                        <img src="/images/mascot.png" 
-                            class="absolute -right-10 bottom-0 w-24 animate-bounce">
+                        <!-- <img src="/images/mascot.png" 
+                            class="absolute -right-10 bottom-0 w-24 animate-bounce"> -->
+                    </div>
+                </div>
+
+
+                <!-- PANTALLA 5 -->
+                <div class="grid md:grid-cols-2 gap-10 items-center">
+                    
+                    <!-- Imagen -->
+                    <div class="flex justify-center">
+                        <img src="/images/traductor.jpeg" class="w-64 rounded-3xl shadow-2xl">
+                    </div>
+
+                    <!-- Texto -->
+                    <div>
+                        <h3 class="text-3xl font-bold text-white mb-4">🌐 Traductor</h3>
+                        <p class="text-gray-300 text-lg">
+                           "Traduce palabras y frases del inglés al español al instante. Perfecto para aprender vocabulario nuevo de forma rápida y precisa.
+                        </p>
                     </div>
                 </div>
 
