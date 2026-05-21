@@ -21,15 +21,15 @@
         
         <div class="flex gap-3">
             <!-- Botón exportar -->
-            <button id="btn-exportar" class="btn-outline flex items-center gap-2 text-sm">
+            <button id="btn-exportar" class="btn-outline flex items-center gap-2 text-sm font-bungee tracking-wide">
                 <i class="fas fa-download"></i>
-                Exportar
+                EXPORTAR
             </button>
             
             <!-- Botón nueva palabra -->
-            <a href="{{ route('words.create') }}" class="btn-primary flex items-center gap-2 text-sm">
+            <a href="{{ route('words.create') }}" class="btn-primary flex items-center gap-2 text-sm font-bungee tracking-wide">
                 <i class="fas fa-plus"></i>
-                Nueva Palabra
+                NUEVA PALABRA
             </a>
         </div>
     </div>
@@ -42,8 +42,8 @@
                     <p class="text-ale-text-dim text-sm">Total Palabras</p>
                     <p class="text-2xl font-bold text-ale-text">{{ $words->count() }}</p>
                 </div>
-                <div class="w-10 h-10 bg-ale-pink/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-language text-ale-pink"></i>
+                <div class="w-10 h-10 bg-[#E0007C]/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-language text-[#E0007C] text-xl"></i>
                 </div>
             </div>
         </div>
@@ -54,8 +54,8 @@
                     <p class="text-ale-text-dim text-sm">Categorías</p>
                     <p class="text-2xl font-bold text-ale-text">{{ $words->groupBy('category_id')->count() }}</p>
                 </div>
-                <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-tags text-blue-400"></i>
+                <div class="w-10 h-10 bg-[#00E5FF]/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-tags text-[#00E5FF] text-xl"></i>
                 </div>
             </div>
         </div>
@@ -67,7 +67,7 @@
                     <p class="text-2xl font-bold text-ale-text">{{ $words->whereNotNull('pronunciation')->count() }}</p>
                 </div>
                 <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-volume-up text-green-400"></i>
+                    <i class="fas fa-volume-up text-green-400 text-xl"></i>
                 </div>
             </div>
         </div>
@@ -79,7 +79,7 @@
                     <p class="text-2xl font-bold text-ale-text">{{ $words->where('created_at', '>=', now()->startOfMonth())->count() }}</p>
                 </div>
                 <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-calendar-plus text-purple-400"></i>
+                    <i class="fas fa-calendar-plus text-purple-400 text-xl"></i>
                 </div>
             </div>
         </div>
@@ -104,9 +104,9 @@
                 </select>
             </div>
             
-            <button id="clear-filters" class="btn-outline text-sm px-4">
+            <button id="clear-filters" class="btn-outline text-sm px-4 font-bungee">
                 <i class="fas fa-eraser"></i>
-                Limpiar
+                LIMPIAR
             </button>
         </div>
     </div>
@@ -117,11 +117,11 @@
             <table class="min-w-full divide-y divide-ale-border">
                 <thead>
                     <tr class="bg-ale-surface-light">
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Palabra</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Traducción</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Pronunciación</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Categoría</th>
-                        <th class="px-4 py-4 text-center text-xs font-semibold text-ale-pink uppercase tracking-wider">Acciones</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">PALABRA</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">TRADUCCIÓN</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">PRONUNCIACIÓN</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">CATEGORÍA</th>
+                        <th class="px-4 py-4 text-center text-xs font-bungee text-[#E0007C] uppercase tracking-wider">ACCIONES</th>
                     </tr>
                 </thead>
                 <tbody class="divide-y divide-ale-border">
@@ -129,8 +129,8 @@
                     <tr class="word-row hover:bg-ale-surface/50 transition-colors" data-word="{{ strtolower($word->word) }}" data-translation="{{ strtolower($word->translation) }}" data-category="{{ strtolower($word->category->name ?? '') }}">
                         <td class="px-4 py-4 align-middle">
                             <div class="flex items-center gap-3">
-                                <div class="w-8 h-8 bg-ale-pink/20 rounded-lg flex items-center justify-center flex-shrink-0">
-                                    <i class="fas fa-language text-ale-pink text-sm"></i>
+                                <div class="w-8 h-8 bg-[#E0007C]/20 rounded-lg flex items-center justify-center flex-shrink-0">
+                                    <i class="fas fa-language text-[#E0007C] text-sm"></i>
                                 </div>
                                 <span class="font-semibold text-ale-text">{{ $word->word }}</span>
                             </div>
@@ -145,17 +145,17 @@
                             </div>
                         </td>
                         <td class="px-4 py-4 align-middle">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-purple-500/20 text-purple-400">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#00E5FF]/20 text-[#00E5FF]">
                                 <i class="fas fa-tag text-xs"></i>
                                 {{ $word->category->name ?? 'Sin categoría' }}
                             </span>
                         </td>
                         <td class="px-4 py-4 align-middle">
                             <div class="flex items-center justify-center gap-3">
-                                <a href="{{ route('words.edit', $word->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Editar">
+                                <a href="{{ route('words.edit', $word->id) }}" class="text-ale-text-dim hover:text-[#00E5FF] transition p-1" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
-                                <a href="{{ route('words.show', $word->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Ver detalles">
+                                <a href="{{ route('words.show', $word->id) }}" class="text-ale-text-dim hover:text-[#00E5FF] transition p-1" title="Ver detalles">
                                     <i class="fas fa-eye"></i>
                                 </a>
                                 <button type="button" onclick="confirmDelete({{ $word->id }}, '{{ addslashes($word->word) }}')" class="text-ale-text-dim hover:text-red-500 transition p-1" title="Eliminar">
@@ -172,7 +172,7 @@
                                     <i class="fas fa-language text-3xl text-ale-text-dim"></i>
                                 </div>
                                 <p class="text-ale-text-dim">No hay palabras registradas</p>
-                                <a href="{{ route('words.create') }}" class="btn-primary text-sm mt-2">Crear primera palabra</a>
+                                <a href="{{ route('words.create') }}" class="btn-primary text-sm mt-2 font-bungee">CREAR PRIMERA PALABRA</a>
                             </div>
                         </td>
                     </tr>
@@ -197,15 +197,15 @@
             <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación</h3>
+            <h3 class="text-xl font-bungee text-ale-text">CONFIRMAR ELIMINACIÓN</h3>
         </div>
         <p class="text-ale-text-dim mb-6">
-            ¿Estás seguro de que deseas eliminar la palabra <strong id="delete-word-name" class="text-ale-pink"></strong>?
+            ¿Estás seguro de que deseas eliminar la palabra <strong id="delete-word-name" class="text-[#E0007C]"></strong>?
             Esta acción no se puede deshacer.
         </p>
         <div class="flex gap-3 justify-end">
-            <button id="cancel-delete" class="btn-outline">Cancelar</button>
-            <button id="confirm-delete" class="btn-primary bg-red-600 hover:bg-red-700">Eliminar</button>
+            <button id="cancel-delete" class="btn-outline font-bungee">CANCELAR</button>
+            <button id="confirm-delete" class="btn-primary bg-red-600 hover:bg-red-700 font-bungee">ELIMINAR</button>
         </div>
     </div>
 </div>
@@ -220,21 +220,28 @@
 
 @push('styles')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+    
+    .font-bungee {
+        font-family: 'Bungee', cursive;
+        letter-spacing: 0.02em;
+    }
+    
     .stat-card {
         background: #19191c;
-        border: 1px solid rgba(228, 0, 124, 0.2);
+        border: 1px solid rgba(224, 0, 124, 0.2);
         border-radius: 1rem;
         transition: all 0.2s ease;
     }
     
     .stat-card:hover {
-        border-color: #E4007C;
+        border-color: #E0007C;
         transform: translateY(-2px);
     }
     
     .input-admin {
         background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(228, 0, 124, 0.35);
+        border: 1px solid rgba(224, 0, 124, 0.35);
         border-radius: 0.5rem;
         padding: 0.6rem 0.75rem;
         color: #FAF9F6;
@@ -244,8 +251,8 @@
     }
     
     .input-admin:focus {
-        border-color: #E4007C;
-        box-shadow: 0 0 0 2px rgba(228, 0, 124, 0.25);
+        border-color: #00E5FF;
+        box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.25);
     }
     
     .word-row {
@@ -254,7 +261,7 @@
     
     .btn-outline {
         background: transparent;
-        border: 1px solid rgba(228, 0, 124, 0.5);
+        border: 1px solid rgba(224, 0, 124, 0.5);
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
         font-weight: 500;
@@ -264,12 +271,12 @@
     }
     
     .btn-outline:hover {
-        background: rgba(228, 0, 124, 0.15);
-        border-color: #E4007C;
+        background: rgba(224, 0, 124, 0.15);
+        border-color: #E0007C;
     }
     
     .btn-primary {
-        background: #E4007C;
+        background: #E0007C;
         border: none;
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
@@ -280,7 +287,7 @@
     }
     
     .btn-primary:hover {
-        background: #c2006b;
+        background: #c20068;
     }
     
     #delete-modal-content {
@@ -296,7 +303,7 @@
     
     .pagination .page-item .page-link {
         background: #1a1a1a;
-        border: 1px solid rgba(228, 0, 124, 0.25);
+        border: 1px solid rgba(224, 0, 124, 0.25);
         color: #FAF9F6;
         padding: 0.5rem 0.85rem;
         border-radius: 0.5rem;
@@ -305,8 +312,13 @@
     }
     
     .pagination .page-item.active .page-link {
-        background: #E4007C;
-        border-color: #E4007C;
+        background: #E0007C;
+        border-color: #E0007C;
+    }
+    
+    .pagination .page-item:not(.disabled):not(.active) .page-link:hover {
+        border-color: #00E5FF;
+        background: rgba(0, 229, 255, 0.1);
     }
 </style>
 @endpush
@@ -432,7 +444,7 @@
                 <i class="fas fa-check-circle text-green-400 text-lg"></i>
             </div>
             <div class="flex-1">
-                <p class="text-sm text-ale-text">Palabras exportadas correctamente</p>
+                <p class="text-sm text-ale-text font-bungee">PALABRAS EXPORTADAS CORRECTAMENTE</p>
             </div>
             <button onclick="this.parentElement.remove()" class="text-ale-text-dim hover:text-ale-text">
                 <i class="fas fa-times"></i>

@@ -20,21 +20,21 @@
     <div class="bg-ale-surface border border-ale-border rounded-xl overflow-hidden">
         
         <!-- Cabecera con icono -->
-        <div class="bg-gradient-to-r from-ale-pink/15 to-transparent p-6 border-b border-ale-border">
+        <div class="bg-gradient-to-r from-[#E0007C]/15 to-transparent p-6 border-b border-ale-border">
             <div class="flex items-center gap-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-ale-pink to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <div class="w-16 h-16 bg-gradient-to-br from-[#E0007C] to-[#c20068] rounded-2xl flex items-center justify-center shadow-lg">
                     <i class="fas fa-layer-group text-white text-2xl"></i>
                 </div>
                 <div>
                     <div class="flex items-center gap-2 mb-1">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-ale-pink/20 text-ale-pink">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bungee bg-[#E0007C]/20 text-[#E0007C]">
                             <i class="fas fa-hashtag text-xs"></i>
                             {{ $level->code }}
                         </span>
                     </div>
-                    <h1 class="text-2xl md:text-3xl font-bold text-white">{{ $level->name }}</h1>
+                    <h1 class="text-2xl md:text-3xl font-bungee text-white tracking-wide">{{ $level->name }}</h1>
                     <div class="flex items-center gap-3 mt-2">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-400">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#00E5FF]/20 text-[#00E5FF]">
                             <i class="fas fa-book text-xs"></i>
                             {{ $level->lessons->count() }} lecciones
                         </span>
@@ -52,9 +52,9 @@
             
             <!-- Descripción -->
             <div class="mb-8">
-                <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <i class="fas fa-align-left text-ale-pink"></i>
-                    Descripción
+                <h3 class="text-lg font-bungee text-white mb-3 flex items-center gap-2 tracking-wide">
+                    <i class="fas fa-align-left text-[#00E5FF]"></i>
+                    DESCRIPCIÓN
                 </h3>
                 <div class="bg-black/30 rounded-xl p-4 border border-ale-border">
                     <p class="text-gray-300 leading-relaxed">
@@ -66,27 +66,27 @@
             <!-- Lecciones del nivel -->
             <div class="mb-6">
                 <div class="flex items-center justify-between mb-4">
-                    <h3 class="text-lg font-semibold text-white flex items-center gap-2">
-                        <i class="fas fa-book-open text-ale-pink"></i>
-                        Lecciones de este nivel
+                    <h3 class="text-lg font-bungee text-white flex items-center gap-2 tracking-wide">
+                        <i class="fas fa-book-open text-[#00E5FF]"></i>
+                        LECCIONES DE ESTE NIVEL
                     </h3>
-                    <a href="{{ route('lessons.create') }}?level_id={{ $level->id }}" class="text-ale-pink text-sm hover:underline flex items-center gap-1">
+                    <a href="{{ route('lessons.create') }}?level_id={{ $level->id }}" class="text-[#00E5FF] text-sm font-bungee hover:underline flex items-center gap-1">
                         <i class="fas fa-plus-circle"></i>
-                        Agregar lección
+                        AGREGAR LECCIÓN
                     </a>
                 </div>
                 
                 @if($level->lessons && $level->lessons->count() > 0)
                     <div class="space-y-2">
                         @foreach($level->lessons as $lesson)
-                            <div class="bg-ale-surface-light border border-ale-border rounded-lg p-3 hover:border-ale-pink transition-all">
+                            <div class="bg-ale-surface-light border border-ale-border rounded-lg p-3 hover:border-[#00E5FF] transition-all">
                                 <div class="flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                        <div class="w-8 h-8 bg-ale-pink/20 rounded-lg flex items-center justify-center">
-                                            <i class="fas fa-book text-ale-pink text-sm"></i>
+                                        <div class="w-8 h-8 bg-[#E0007C]/20 rounded-lg flex items-center justify-center">
+                                            <i class="fas fa-book text-[#E0007C] text-sm"></i>
                                         </div>
                                         <div>
-                                            <a href="{{ route('lessons.show', $lesson->id) }}" class="text-white font-medium hover:text-ale-pink transition">
+                                            <a href="{{ route('lessons.show', $lesson->id) }}" class="text-white font-medium hover:text-[#00E5FF] transition">
                                                 {{ $lesson->title }}
                                             </a>
                                             @if($lesson->description)
@@ -96,17 +96,17 @@
                                     </div>
                                     <div class="flex items-center gap-2">
                                         @if(($lesson->status ?? 'published') == 'published')
-                                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-green-500/20 text-green-400">
+                                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-green-500/20 text-green-400 font-bungee">
                                                 <i class="fas fa-check-circle text-xs"></i>
-                                                Publicada
+                                                PUBLICADA
                                             </span>
                                         @else
-                                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-yellow-500/20 text-yellow-400">
+                                            <span class="inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs bg-yellow-500/20 text-yellow-400 font-bungee">
                                                 <i class="fas fa-pen text-xs"></i>
-                                                Borrador
+                                                BORRADOR
                                             </span>
                                         @endif
-                                        <a href="{{ route('lessons.edit', $lesson->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Editar">
+                                        <a href="{{ route('lessons.edit', $lesson->id) }}" class="text-ale-text-dim hover:text-[#00E5FF] transition p-1" title="Editar">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                     </div>
@@ -117,13 +117,13 @@
                 @else
                     <div class="text-center py-8 bg-ale-surface-light rounded-xl border border-ale-border">
                         <div class="flex flex-col items-center gap-3">
-                            <div class="w-12 h-12 bg-ale-pink/20 rounded-full flex items-center justify-center">
-                                <i class="fas fa-book-open text-ale-pink text-xl"></i>
+                            <div class="w-12 h-12 bg-[#E0007C]/20 rounded-full flex items-center justify-center">
+                                <i class="fas fa-book-open text-[#E0007C] text-xl"></i>
                             </div>
                             <p class="text-ale-text-dim">Este nivel no tiene lecciones asignadas</p>
-                            <a href="{{ route('lessons.create') }}?level_id={{ $level->id }}" class="btn-outline text-sm mt-2">
+                            <a href="{{ route('lessons.create') }}?level_id={{ $level->id }}" class="btn-outline text-sm mt-2 font-bungee">
                                 <i class="fas fa-plus"></i>
-                                Crear primera lección
+                                CREAR PRIMERA LECCIÓN
                             </a>
                         </div>
                     </div>
@@ -133,17 +133,17 @@
             <!-- Información adicional -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-4 border-t border-ale-border">
                 <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-hashtag text-ale-pink w-5"></i>
+                    <i class="fas fa-hashtag text-[#E0007C] w-5"></i>
                     <span class="text-gray-400">Código:</span>
                     <span class="text-white font-mono">{{ $level->code }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-id-card text-ale-pink w-5"></i>
+                    <i class="fas fa-id-card text-[#E0007C] w-5"></i>
                     <span class="text-gray-400">ID del nivel:</span>
                     <span class="text-white">{{ $level->id }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-edit text-ale-pink w-5"></i>
+                    <i class="fas fa-edit text-[#E0007C] w-5"></i>
                     <span class="text-gray-400">Última actualización:</span>
                     <span class="text-white">{{ $level->updated_at ? $level->updated_at->format('d/m/Y H:i') : 'N/A' }}</span>
                 </div>
@@ -153,19 +153,19 @@
 
         <!-- Botones de acción -->
         <div class="bg-ale-surface/50 p-6 border-t border-ale-border flex flex-wrap gap-3">
-            <a href="{{ route('levels.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2 rounded-lg font-medium transition flex items-center gap-2">
+            <a href="{{ route('levels.index') }}" class="bg-transparent border border-ale-border hover:border-[#00E5FF] text-white px-5 py-2 rounded-lg font-bungee transition flex items-center gap-2 tracking-wide hover:text-[#00E5FF]">
                 <i class="fas fa-arrow-left"></i>
-                Volver al listado
+                VOLVER AL LISTADO
             </a>
             
-            <a href="{{ route('levels.edit', $level->id) }}" class="bg-[#06b6d4] hover:bg-[#0891b2] text-white px-5 py-2 rounded-lg font-medium transition flex items-center gap-2">
+            <a href="{{ route('levels.edit', $level->id) }}" class="bg-[#00E5FF] hover:bg-[#c20068] text-black px-5 py-2 rounded-lg font-bungee transition flex items-center gap-2 tracking-wide">
                 <i class="fas fa-edit"></i>
-                Editar Nivel
+                EDITAR NIVEL
             </a>
             
-            <button type="button" onclick="confirmDelete({{ $level->id }}, '{{ addslashes($level->name) }}')" class="ml-auto bg-red-600/20 border border-red-600/50 hover:bg-red-600 text-red-400 hover:text-white px-5 py-2 rounded-lg font-medium transition flex items-center gap-2">
+            <button type="button" onclick="confirmDelete({{ $level->id }}, '{{ addslashes($level->name) }}')" class="ml-auto bg-red-600/20 border border-red-600/50 hover:bg-red-600 text-red-400 hover:text-white px-5 py-2 rounded-lg font-bungee transition flex items-center gap-2 tracking-wide">
                 <i class="fas fa-trash-alt"></i>
-                Eliminar Nivel
+                ELIMINAR NIVEL
             </button>
         </div>
     </div>
@@ -179,15 +179,15 @@
             <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación</h3>
+            <h3 class="text-xl font-bungee text-ale-text">CONFIRMAR ELIMINACIÓN</h3>
         </div>
         <p class="text-ale-text-dim mb-6">
-            ¿Estás seguro de que deseas eliminar el nivel <strong id="delete-level-name" class="text-ale-pink"></strong>?
-            Esta acción no se puede deshacer y afectará a las <strong id="lessons-count" class="text-ale-pink"></strong> lecciones asociadas.
+            ¿Estás seguro de que deseas eliminar el nivel <strong id="delete-level-name" class="text-[#E0007C]"></strong>?
+            Esta acción no se puede deshacer y afectará a las <strong id="lessons-count" class="text-[#E0007C]"></strong> lecciones asociadas.
         </p>
         <div class="flex gap-3 justify-end">
-            <button id="cancel-delete" class="btn-outline">Cancelar</button>
-            <button id="confirm-delete" class="btn-primary bg-red-600 hover:bg-red-700">Eliminar</button>
+            <button id="cancel-delete" class="btn-outline font-bungee">CANCELAR</button>
+            <button id="confirm-delete" class="btn-primary bg-red-600 hover:bg-red-700 font-bungee">ELIMINAR</button>
         </div>
     </div>
 </div>
@@ -202,9 +202,16 @@
 
 @push('styles')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+    
+    .font-bungee {
+        font-family: 'Bungee', cursive;
+        letter-spacing: 0.02em;
+    }
+    
     .btn-outline {
         background: transparent;
-        border: 1px solid rgba(228, 0, 124, 0.5);
+        border: 1px solid rgba(224, 0, 124, 0.5);
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
         font-weight: 500;
@@ -214,12 +221,12 @@
     }
     
     .btn-outline:hover {
-        background: rgba(228, 0, 124, 0.15);
-        border-color: #E4007C;
+        background: rgba(224, 0, 124, 0.15);
+        border-color: #E0007C;
     }
     
     .btn-primary {
-        background: #E4007C;
+        background: #E0007C;
         border: none;
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
@@ -230,7 +237,7 @@
     }
     
     .btn-primary:hover {
-        background: #c2006b;
+        background: #c20068;
     }
     
     #delete-modal-content {

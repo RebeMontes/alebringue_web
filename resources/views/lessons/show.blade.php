@@ -20,29 +20,18 @@
     <div class="bg-ale-surface border border-ale-border rounded-xl overflow-hidden">
         
         <!-- Cabecera con icono -->
-        <div class="bg-gradient-to-r from-ale-pink/15 to-transparent p-6 border-b border-ale-border">
+        <div class="bg-gradient-to-r from-[#E0007C]/15 to-transparent p-6 border-b border-ale-border">
             <div class="flex items-center gap-4">
-                <div class="w-16 h-16 bg-gradient-to-br from-ale-pink to-pink-600 rounded-2xl flex items-center justify-center shadow-lg">
+                <div class="w-16 h-16 bg-gradient-to-br from-[#E0007C] to-[#c20068] rounded-2xl flex items-center justify-center shadow-lg">
                     <i class="fas fa-book-open text-white text-2xl"></i>
                 </div>
                 <div>
-                    <h1 class="text-2xl md:text-3xl font-bold text-white">{{ $lesson->title }}</h1>
+                    <h1 class="text-2xl md:text-3xl font-bungee text-white tracking-wide">{{ $lesson->title }}</h1>
                     <div class="flex items-center gap-2 mt-2">
-                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-400">
+                        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bungee bg-[#00E5FF]/20 text-[#00E5FF]">
                             <i class="fas fa-layer-group text-xs"></i>
-                            Nivel: {{ $lesson->level->name ?? 'Sin nivel' }}
+                            NIVEL: {{ $lesson->level->name ?? 'Sin nivel' }}
                         </span>
-                        <!-- @if(($lesson->status ?? 'published') == 'published')
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-green-500/20 text-green-400">
-                                <i class="fas fa-check-circle text-xs"></i>
-                                Publicada
-                            </span>
-                        @else
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-yellow-500/20 text-yellow-400">
-                                <i class="fas fa-pen text-xs"></i>
-                                Borrador
-                            </span>
-                        @endif -->
                     </div>
                 </div>
             </div>
@@ -53,9 +42,9 @@
             
             <!-- Descripción -->
             <div class="mb-6">
-                <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <i class="fas fa-align-left text-ale-pink"></i>
-                    Descripción
+                <h3 class="text-lg font-bungee text-white mb-3 flex items-center gap-2 tracking-wide">
+                    <i class="fas fa-align-left text-[#00E5FF]"></i>
+                    DESCRIPCIÓN
                 </h3>
                 <div class="bg-black/30 rounded-xl p-4 border border-ale-border">
                     <p class="text-gray-300 leading-relaxed">
@@ -67,15 +56,15 @@
             <!-- Palabras de vocabulario -->
             @if($lesson->words && $lesson->words->count() > 0)
             <div class="mb-6">
-                <h3 class="text-lg font-semibold text-white mb-3 flex items-center gap-2">
-                    <i class="fas fa-language text-ale-pink"></i>
-                    Palabras de vocabulario
+                <h3 class="text-lg font-bungee text-white mb-3 flex items-center gap-2 tracking-wide">
+                    <i class="fas fa-language text-[#00E5FF]"></i>
+                    PALABRAS DE VOCABULARIO
                 </h3>
                 <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
                     @foreach($lesson->words as $word)
-                        <div class="bg-ale-surface-light rounded-lg p-3 border border-ale-border hover:border-ale-pink transition">
+                        <div class="bg-ale-surface-light rounded-lg p-3 border border-ale-border hover:border-[#00E5FF] transition">
                             <div class="flex items-center gap-2">
-                                <i class="fas fa-microphone-alt text-ale-pink text-sm"></i>
+                                <i class="fas fa-microphone-alt text-[#E0007C] text-sm"></i>
                                 <span class="text-ale-text font-medium">{{ $word->word }}</span>
                             </div>
                         </div>
@@ -87,45 +76,40 @@
             <!-- Información adicional -->
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6 pt-4 border-t border-ale-border">
                 <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-calendar-alt text-ale-pink w-5"></i>
+                    <i class="fas fa-calendar-alt text-[#E0007C] w-5"></i>
                     <span class="text-gray-400">Creada:</span>
                     <span class="text-white">{{ $lesson->created_at ? $lesson->created_at->format('d/m/Y H:i') : 'N/A' }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-edit text-ale-pink w-5"></i>
+                    <i class="fas fa-edit text-[#E0007C] w-5"></i>
                     <span class="text-gray-400">Última actualización:</span>
                     <span class="text-white">{{ $lesson->updated_at ? $lesson->updated_at->format('d/m/Y H:i') : 'N/A' }}</span>
                 </div>
                 <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-id-card text-ale-pink w-5"></i>
+                    <i class="fas fa-id-card text-[#E0007C] w-5"></i>
                     <span class="text-gray-400">ID de lección:</span>
                     <span class="text-white">{{ $lesson->id }}</span>
                 </div>
-                <!-- <div class="flex items-center gap-2 text-sm">
-                    <i class="fas fa-chart-line text-ale-pink w-5"></i>
-                    <span class="text-gray-400">Progreso promedio:</span>
-                    <span class="text-white">0%</span>
-                </div> -->
             </div>
 
         </div>
 
         <!-- Botones de acción -->
         <div class="bg-ale-surface/50 p-6 border-t border-ale-border flex flex-wrap gap-3">
-            <a href="{{ route('lessons.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2 rounded-lg font-medium transition flex items-center gap-2">
+            <a href="{{ route('lessons.index') }}" class="bg-transparent border border-ale-border hover:border-[#00E5FF] text-white px-5 py-2 rounded-lg font-bungee transition flex items-center gap-2 tracking-wide hover:text-[#00E5FF]">
                 <i class="fas fa-arrow-left"></i>
-                Volver al listado
+                VOLVER AL LISTADO
             </a>
             
-            <a href="{{ route('lessons.edit', $lesson->id) }}" class="bg-yellow-500 hover:bg-yellow-600 text-white px-5 py-2 rounded-lg font-medium transition flex items-center gap-2">
+            <a href="{{ route('lessons.edit', $lesson->id) }}" class="bg-[#00E5FF] hover:bg-[#E0007C] text-black px-5 py-2 rounded-lg font-bungee transition flex items-center gap-2 tracking-wide">
                 <i class="fas fa-edit"></i>
-                Editar Lección
+                EDITAR LECCIÓN
             </a>
             
             @if(($lesson->status ?? 'published') == 'published')
-            <button type="button" onclick="confirmDelete({{ $lesson->id }}, '{{ addslashes($lesson->title) }}')" class="ml-auto bg-red-600/20 border border-red-600/50 hover:bg-red-600 text-red-400 hover:text-white px-5 py-2 rounded-lg font-medium transition flex items-center gap-2">
+            <button type="button" onclick="confirmDelete({{ $lesson->id }}, '{{ addslashes($lesson->title) }}')" class="ml-auto bg-red-600/20 border border-red-600/50 hover:bg-red-600 text-red-400 hover:text-white px-5 py-2 rounded-lg font-bungee transition flex items-center gap-2 tracking-wide">
                 <i class="fas fa-trash-alt"></i>
-                Eliminar Lección
+                ELIMINAR LECCIÓN
             </button>
             @endif
         </div>
@@ -140,15 +124,15 @@
             <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación</h3>
+            <h3 class="text-xl font-bungee text-ale-text">CONFIRMAR ELIMINACIÓN</h3>
         </div>
         <p class="text-ale-text-dim mb-6">
-            ¿Estás seguro de que deseas eliminar la lección <strong id="delete-lesson-title" class="text-ale-pink"></strong>?
+            ¿Estás seguro de que deseas eliminar la lección <strong id="delete-lesson-title" class="text-[#E0007C]"></strong>?
             Esta acción no se puede deshacer y se eliminarán todos los datos asociados.
         </p>
         <div class="flex gap-3 justify-end">
-            <button id="cancel-delete" class="btn-outline">Cancelar</button>
-            <button id="confirm-delete" class="btn-primary bg-red-600 hover:bg-red-700">Eliminar</button>
+            <button id="cancel-delete" class="btn-outline font-bungee">CANCELAR</button>
+            <button id="confirm-delete" class="btn-primary bg-red-600 hover:bg-red-700 font-bungee">ELIMINAR</button>
         </div>
     </div>
 </div>
@@ -163,9 +147,16 @@
 
 @push('styles')
 <style>
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+    
+    .font-bungee {
+        font-family: 'Bungee', cursive;
+        letter-spacing: 0.02em;
+    }
+    
     .btn-outline {
         background: transparent;
-        border: 1px solid rgba(228, 0, 124, 0.5);
+        border: 1px solid rgba(224, 0, 124, 0.5);
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
         font-weight: 500;
@@ -175,12 +166,12 @@
     }
     
     .btn-outline:hover {
-        background: rgba(228, 0, 124, 0.15);
-        border-color: #E4007C;
+        background: rgba(224, 0, 124, 0.15);
+        border-color: #E0007C;
     }
     
     .btn-primary {
-        background: #E4007C;
+        background: #E0007C;
         border: none;
         border-radius: 0.5rem;
         padding: 0.5rem 1rem;
@@ -191,7 +182,7 @@
     }
     
     .btn-primary:hover {
-        background: #c2006b;
+        background: #c20068;
     }
     
     #delete-modal-content {

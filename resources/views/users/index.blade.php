@@ -19,15 +19,15 @@
         
         <div class="flex gap-3">
             <!-- Botón exportar -->
-            <button id="btn-exportar" class="btn-outline flex items-center gap-2 text-sm">
+            <button id="btn-exportar" class="btn-outline flex items-center gap-2 text-sm font-bungee">
                 <i class="fas fa-download"></i>
-                Exportar
+                EXPORTAR
             </button>
             
             <!-- Botón nuevo usuario -->
-            <a href="{{ route('users.create') }}" class="btn-primary flex items-center gap-2 text-sm">
+            <a href="{{ route('users.create') }}" class="btn-primary flex items-center gap-2 text-sm font-bungee">
                 <i class="fas fa-plus"></i>
-                Nuevo Usuario
+                NUEVO USUARIO
             </a>
         </div>
     </div>
@@ -40,8 +40,8 @@
                     <p class="text-ale-text-dim text-sm">Total Usuarios</p>
                     <p class="text-2xl font-bold text-ale-text">{{ $users->count() }}</p>
                 </div>
-                <div class="w-10 h-10 bg-ale-pink/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-users text-ale-pink"></i>
+                <div class="w-10 h-10 bg-[#E0007C]/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-users text-[#E0007C] text-xl"></i>
                 </div>
             </div>
         </div>
@@ -52,8 +52,8 @@
                     <p class="text-ale-text-dim text-sm">Estudiantes</p>
                     <p class="text-2xl font-bold text-ale-text">{{ $users->where('user_type', 'user')->count() }}</p>
                 </div>
-                <div class="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-user-graduate text-blue-400"></i>
+                <div class="w-10 h-10 bg-[#00E5FF]/20 rounded-full flex items-center justify-center">
+                    <i class="fas fa-user-graduate text-[#00E5FF] text-xl"></i>
                 </div>
             </div>
         </div>
@@ -65,7 +65,7 @@
                     <p class="text-2xl font-bold text-ale-text">{{ $users->where('user_type', 'admin')->count() }}</p>
                 </div>
                 <div class="w-10 h-10 bg-purple-500/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-user-shield text-purple-400"></i>
+                    <i class="fas fa-user-shield text-purple-400 text-xl"></i>
                 </div>
             </div>
         </div>
@@ -77,7 +77,7 @@
                     <p class="text-2xl font-bold text-ale-text">{{ $users->where('created_at', '>=', now()->startOfMonth())->count() }}</p>
                 </div>
                 <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center">
-                    <i class="fas fa-calendar-plus text-green-400"></i>
+                    <i class="fas fa-calendar-plus text-green-400 text-xl"></i>
                 </div>
             </div>
         </div>
@@ -102,20 +102,16 @@
                     <option value="admin">Administradores</option>
                 </select>
             </div>
-            
-            <!-- Filtro por estado -->
-            <!-- <div>
-                <select id="filter-status" class="input-admin w-full md:w-40">
-                    <option value="all">Todos los estados</option>
-                    <option value="active">Activos</option>
-                    <option value="inactive">Inactivos</option>
-                </select>
-            </div> -->
-            
+
+
+            <button id="clear-filters" class="btn-outline text-sm px-4 font-bungee">
+                <i class="fas fa-eraser"></i>
+                LIMPIAR
+            </button>
         </div>
     </div>
     
-    <!-- Tabla de usuarios - Con mejor espaciado y alineación -->
+    <!-- Tabla de usuarios -->
     <div class="card-admin overflow-hidden">
         <div class="overflow-x-auto">
             <table class="min-w-full divide-y divide-ale-border">
@@ -124,12 +120,11 @@
                         <th class="w-12 px-4 py-4 text-left">
                             <input type="checkbox" id="select-all" class="rounded border-ale-border bg-transparent">
                         </th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Usuario</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Correo electrónico</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Tipo</th>
-                        <th class="px-4 py-4 text-left text-xs font-semibold text-ale-pink uppercase tracking-wider">Fecha de registro</th>
-                        <th class="px-4 py-4 text-center text-xs font-semibold text-ale-pink uppercase tracking-wider">Acciones</th>
-                    </tr>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">Usuario</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">Correo electrónico</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">Tipo</th>
+                        <th class="px-4 py-4 text-left text-xs font-bungee text-[#E0007C] uppercase tracking-wider">Fecha de registro</th>
+                        <th class="px-4 py-4 text-center text-xs font-bungee text-[#E0007C] uppercase tracking-wider">Acciones</th>
                 </thead>
                 <tbody class="divide-y divide-ale-border">
                     @forelse($users as $user)
@@ -139,7 +134,7 @@
                         </td>
                         <td class="px-4 py-4 align-middle">
                             <div class="flex items-center gap-3">
-                                <div class="w-10 h-10 bg-gradient-to-r from-ale-pink to-pink-600 rounded-full flex items-center justify-center flex-shrink-0">
+                                <div class="w-10 h-10 bg-gradient-to-r from-[#E0007C] to-[#c20068] rounded-full flex items-center justify-center flex-shrink-0">
                                     <span class="text-white text-sm font-semibold">{{ strtoupper(substr($user->name, 0, 2)) }}</span>
                                 </div>
                                 <div class="min-w-0">
@@ -161,59 +156,39 @@
                                     Administrador
                                 </span>
                             @else
-                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/20 text-blue-400">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold bg-[#00E5FF]/20 text-[#00E5FF]">
                                     <i class="fas fa-user-graduate text-xs"></i>
                                     Estudiante
                                 </span>
                             @endif
                         </td>
-                        <!-- <td class="px-4 py-4 align-middle">
-                            <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-semibold {{ ($user->status ?? 'active') == 'active' ? 'bg-green-500/20 text-green-400' : 'bg-red-500/20 text-red-400' }}">
-                                <i class="fas {{ ($user->status ?? 'active') == 'active' ? 'fa-check-circle' : 'fa-times-circle' }} text-xs"></i>
-                                {{ ($user->status ?? 'active') == 'active' ? 'Activo' : 'Inactivo' }}
-                            </span>
-                        </td> -->
                         <td class="px-4 py-4 align-middle">
                             <div class="flex flex-col">
                                 <span class="text-ale-text text-sm">{{ $user->created_at ? $user->created_at->format('d/m/Y') : 'N/A' }}</span>
                                 <span class="text-xs text-ale-text-dim">{{ $user->created_at ? $user->created_at->format('H:i') : '' }}</span>
                             </div>
                         </td>
-                        <!-- <td class="px-4 py-4 align-middle">
-                            <div class="min-w-[120px]">
-                                <div class="flex justify-between text-xs text-ale-text-dim mb-1.5">
-                                    <span>Progreso</span>
-                                    <span class="font-medium text-ale-pink">{{ $user->progress ?? 0 }}%</span>
-                                </div> -->
-                                <!-- <div class="progress-bar h-2">
-                                    <div class="progress-fill" style="width: {{ $user->progress ?? 0 }}%"></div>
-                                </div>
-                            </div>
-                        </td> -->
-                        <td class="px-4 py-4 align-middle">
-                            <div class="flex items-center justify-center gap-3">
-                                <a href="{{ route('users.edit', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Editar">
-                                    <i class="fas fa-edit"></i>
-                                </a>
-                               
-                                <a href="{{ route('users.show', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Ver detalles">
+                    <td class="px-4 py-4 align-middle">
+                        <div class="flex items-center justify-center gap-3">
+                            <a href="{{ route('users.edit', $user->id) }}" class="text-ale-text-dim hover:text-[#E0007C] transition p-1" title="Editar">
+                                <i class="fas fa-edit"></i>
+                            </a>
+                                <a href="{{ route('users.show', $user->id) }}" class="text-ale-text-dim hover:text-[#E0007C] transition p-1" title="Ver detalles">
                                     <i class="fas fa-eye"></i> 
                                 </a>
-                                <a href="{{ route('users.destroy', $user->id) }}" type="button" onclick="confirmDelete({{ $user->id }}, '{{ addslashes($user->name) }}')" class="text-ale-text-dim hover:text-red-500 transition p-1" title="Eliminar">
+                                <!-- <button type="button" onclick="confirmDelete({{ $user->id }}, '{{ addslashes($user->name) }}')" class="text-ale-text-dim hover:text-red-500 transition p-1" title="Eliminar">
                                     <i class="fas fa-trash-alt"></i>
-                                </a>
+                                </button> -->
                             </div>
                         </td>
-                    </tr>
                     @empty
-                    <tr>
-                        <td colspan="8" class="px-4 py-16 text-center">
+                        <td colspan="6" class="px-4 py-16 text-center">
                             <div class="flex flex-col items-center gap-4">
                                 <div class="w-16 h-16 bg-ale-surface rounded-full flex items-center justify-center">
                                     <i class="fas fa-users-slash text-3xl text-ale-text-dim"></i>
                                 </div>
                                 <p class="text-ale-text-dim">No hay usuarios registrados</p>
-                                <a href="{{ route('users.create') }}" class="btn-primary text-sm mt-2">Crear primer usuario</a>
+                                <a href="{{ route('users.create') }}" class="btn-primary text-sm mt-2 font-bungee">CREAR PRIMER USUARIO</a>
                             </div>
                         </td>
                     </tr>
@@ -230,21 +205,15 @@
         @endif
     </div>
     
-   <!-- Acciones masivas -->
+    <!-- Acciones masivas -->
     <div id="bulk-actions" class="fixed bottom-6 left-1/2 transform -translate-x-1/2 bg-ale-surface border border-ale-border rounded-xl shadow-xl p-3 flex items-center gap-4 z-50 hidden">
         <span id="selected-count" class="text-ale-text text-sm">0 seleccionados</span>
         <div class="h-6 w-px bg-ale-border"></div>
-        <!-- <button id="bulk-activate" class="text-green-400 hover:text-green-300 transition text-sm flex items-center gap-2">
-            <i class="fas fa-check-circle"></i> Activar
+        <button id="bulk-delete" class="text-red-400 hover:text-red-300 transition text-sm flex items-center gap-2 font-bungee">
+            <i class="fas fa-trash"></i> ELIMINAR
         </button>
-        <button id="bulk-deactivate" class="text-yellow-400 hover:text-yellow-300 transition text-sm flex items-center gap-2">
-            <i class="fas fa-ban"></i> Desactivar
-        </button> -->
-        <button id="bulk-delete" class="text-red-400 hover:text-red-300 transition text-sm flex items-center gap-2">
-            <i class="fas fa-trash"></i> Eliminar
-        </button>
-        <button id="bulk-cancel" class="text-ale-text-dim hover:text-ale-text transition text-sm">
-            <i class="fas fa-times"></i>
+        <button id="bulk-cancel" class="text-ale-text-dim hover:text-ale-text transition text-sm font-bungee">
+            <i class="fas fa-times"></i> CANCELAR
         </button>
     </div>
     
@@ -257,18 +226,18 @@
             <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación</h3>
+            <h3 class="text-xl font-bungee text-ale-text">CONFIRMAR ELIMINACIÓN</h3>
         </div>
         <p class="text-ale-text-dim mb-6">
-            ¿Estás seguro de que deseas eliminar al usuario <strong id="delete-user-name" class="text-ale-pink"></strong>?
+            ¿Estás seguro de que deseas eliminar al usuario <strong id="delete-user-name" class="text-[#E0007C]"></strong>?
             Esta acción no se puede deshacer.
         </p>
         <div class="flex gap-3 justify-end">
-            <button id="cancel-delete" class="btn-outline">Cancelar</button>
+            <button id="cancel-delete" class="btn-outline font-bungee">CANCELAR</button>
             <form id="delete-form" method="POST" action="">
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="btn-primary bg-red-600 hover:bg-red-700">Eliminar</button>
+                <button type="submit" class="btn-primary bg-red-600 hover:bg-red-700 font-bungee">ELIMINAR</button>
             </form>
         </div>
     </div>
@@ -281,25 +250,25 @@
             <div class="w-12 h-12 bg-red-500/20 rounded-full flex items-center justify-center">
                 <i class="fas fa-exclamation-triangle text-red-500 text-xl"></i>
             </div>
-            <h3 class="text-xl font-bold text-ale-text">Confirmar eliminación</h3>
+            <h3 class="text-xl font-bungee text-ale-text">CONFIRMAR ELIMINACIÓN</h3>
         </div>
         <p class="text-ale-text-dim mb-6">
-            ¿Estás seguro de que deseas eliminar <strong id="bulk-delete-count" class="text-ale-pink"></strong> usuario(s)?
+            ¿Estás seguro de que deseas eliminar <strong id="bulk-delete-count" class="text-[#E0007C]"></strong> usuario(s)?
             Esta acción no se puede deshacer.
         </p>
         <div class="flex gap-3 justify-end">
-            <button id="cancel-bulk-delete" class="btn-outline">Cancelar</button>
-            <button id="confirm-bulk-delete" class="btn-primary bg-red-600 hover:bg-red-700">Eliminar</button>
+            <button id="cancel-bulk-delete" class="btn-outline font-bungee">CANCELAR</button>
+            <button id="confirm-bulk-delete" class="btn-primary bg-red-600 hover:bg-red-700 font-bungee">ELIMINAR</button>
         </div>
     </div>
 </div>
 
 <!-- Toast de notificación -->
 <div id="toast-notification" class="fixed top-20 right-6 z-50 transform transition-all duration-300 translate-x-full">
-    <div class="bg-ale-surface border rounded-xl shadow-xl p-4 min-w-[280px] flex items-center gap-3">
+    <div class="bg-ale-surface border border-[#E0007C]/30 rounded-xl shadow-xl p-4 min-w-[280px] flex items-center gap-3">
         <div id="toast-icon" class="w-8 h-8 rounded-full flex items-center justify-center"></div>
         <div class="flex-1">
-            <p id="toast-title" class="font-semibold text-ale-text"></p>
+            <p id="toast-title" class="font-bungee text-ale-text"></p>
             <p id="toast-message" class="text-sm text-ale-text-dim"></p>
         </div>
         <button onclick="hideToast()" class="text-ale-text-dim hover:text-ale-text">
@@ -308,6 +277,122 @@
     </div>
 </div>
 
+@endsection
+
+@push('styles')
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bungee&display=swap');
+    
+    .font-bungee {
+        font-family: 'Bungee', cursive;
+        letter-spacing: 0.02em;
+    }
+    
+    .stat-card {
+        background: #19191c;
+        border: 1px solid rgba(224, 0, 124, 0.2);
+        border-radius: 1rem;
+        transition: all 0.2s ease;
+    }
+    
+    .stat-card:hover {
+        border-color: #E0007C;
+        transform: translateY(-2px);
+    }
+    
+    .input-admin {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(224, 0, 124, 0.35);
+        border-radius: 0.5rem;
+        padding: 0.6rem 0.75rem;
+        color: #FAF9F6;
+        width: 100%;
+        outline: none;
+        transition: all 0.2s ease;
+    }
+    
+    .input-admin:focus {
+        border-color: #00E5FF;
+        box-shadow: 0 0 0 2px rgba(0, 229, 255, 0.25);
+    }
+    
+    input[type="checkbox"] {
+        accent-color: #E0007C;
+        width: 1rem;
+        height: 1rem;
+        cursor: pointer;
+    }
+    
+    .user-row {
+        transition: background-color 0.2s ease;
+    }
+    
+    .pagination {
+        display: flex;
+        justify-content: center;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+    }
+    
+    .pagination .page-item .page-link {
+        background: #19191c;
+        border: 1px solid rgba(224, 0, 124, 0.25);
+        color: #FAF9F6;
+        padding: 0.5rem 0.85rem;
+        border-radius: 0.5rem;
+        transition: all 0.2s ease;
+        font-size: 0.875rem;
+    }
+    
+    .pagination .page-item.active .page-link {
+        background: #E0007C;
+        border-color: #E0007C;
+    }
+    
+    .pagination .page-item.disabled .page-link {
+        opacity: 0.5;
+        cursor: not-allowed;
+    }
+    
+    .pagination .page-item:not(.disabled):not(.active) .page-link:hover {
+        border-color: #00E5FF;
+        background: rgba(0, 229, 255, 0.1);
+    }
+    
+    .btn-outline {
+        background: transparent;
+        border: 1px solid rgba(224, 0, 124, 0.5);
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: #FAF9F6;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-outline:hover {
+        background: rgba(224, 0, 124, 0.15);
+        border-color: #E0007C;
+    }
+    
+    .btn-primary {
+        background: #E0007C;
+        border: none;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        font-weight: 500;
+        color: #FAF9F6;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
+    
+    .btn-primary:hover {
+        background: #c20068;
+    }
+</style>
+@endpush
+
+@push('scripts')
 <script>
     // Función para mostrar toast
     function showToast(title, message, type = 'success') {
@@ -320,17 +405,17 @@
             toastIcon.innerHTML = '<i class="fas fa-check-circle text-green-400 text-lg"></i>';
             toastIcon.className = 'w-8 h-8 rounded-full bg-green-500/20 flex items-center justify-center';
             toastTitle.textContent = title;
-            toastTitle.className = 'font-semibold text-green-400';
+            toastTitle.className = 'font-bungee text-green-400';
         } else if (type === 'error') {
             toastIcon.innerHTML = '<i class="fas fa-exclamation-circle text-red-400 text-lg"></i>';
             toastIcon.className = 'w-8 h-8 rounded-full bg-red-500/20 flex items-center justify-center';
             toastTitle.textContent = title;
-            toastTitle.className = 'font-semibold text-red-400';
+            toastTitle.className = 'font-bungee text-red-400';
         } else {
             toastIcon.innerHTML = '<i class="fas fa-info-circle text-blue-400 text-lg"></i>';
             toastIcon.className = 'w-8 h-8 rounded-full bg-blue-500/20 flex items-center justify-center';
             toastTitle.textContent = title;
-            toastTitle.className = 'font-semibold text-blue-400';
+            toastTitle.className = 'font-bungee text-blue-400';
         }
         
         toastMessage.textContent = message;
@@ -346,11 +431,6 @@
         const toast = document.getElementById('toast-notification');
         toast.classList.remove('translate-x-0');
         toast.classList.add('translate-x-full');
-    }
-    
-    // Función para recargar la página
-    function reloadPage() {
-        location.reload();
     }
     
     // Función para confirmar eliminación individual
@@ -384,65 +464,26 @@
     // Búsqueda y filtros
     const searchInput = document.getElementById('search-input');
     const filterType = document.getElementById('filter-type');
-    const filterStatus = document.getElementById('filter-status');
     const rows = document.querySelectorAll('.user-row');
     
     function filterTable() {
         const searchTerm = searchInput?.value.toLowerCase() || '';
         const typeValue = filterType?.value || 'all';
-        const statusValue = filterStatus?.value || 'all';
-        
-        let visibleCount = 0;
         
         rows.forEach(row => {
             const name = row.dataset.name || '';
             const email = row.dataset.email || '';
             const type = row.dataset.type || '';
-            const status = row.dataset.status || 'active';
             
             const matchesSearch = name.includes(searchTerm) || email.includes(searchTerm);
             const matchesType = typeValue === 'all' || type === typeValue;
-            const matchesStatus = statusValue === 'all' || status === statusValue;
             
-            if (matchesSearch && matchesType && matchesStatus) {
-                row.style.display = '';
-                visibleCount++;
-            } else {
-                row.style.display = 'none';
-            }
+            row.style.display = (matchesSearch && matchesType) ? '' : 'none';
         });
-        
-        const tbody = document.querySelector('#users-table-body');
-        const noResultsRow = document.getElementById('no-results-row');
-        
-        if (visibleCount === 0 && rows.length > 0) {
-            if (!noResultsRow) {
-                const tr = document.createElement('tr');
-                tr.id = 'no-results-row';
-                tr.innerHTML = `<td colspan="8" class="px-4 py-12 text-center">
-                    <div class="flex flex-col items-center gap-2">
-                        <i class="fas fa-search text-3xl text-ale-text-dim"></i>
-                        <p class="text-ale-text-dim">No se encontraron usuarios con esos criterios</p>
-                        <button id="clear-filters-empty" class="btn-outline text-sm mt-2" onclick="resetFilters()">Limpiar filtros</button>
-                    </div>
-                </td>`;
-                tbody?.appendChild(tr);
-            }
-        } else if (noResultsRow) {
-            noResultsRow.remove();
-        }
-    }
-    
-    function resetFilters() {
-        if (searchInput) searchInput.value = '';
-        if (filterType) filterType.value = 'all';
-        if (filterStatus) filterStatus.value = 'all';
-        filterTable();
     }
     
     searchInput?.addEventListener('keyup', filterTable);
     filterType?.addEventListener('change', filterTable);
-    filterStatus?.addEventListener('change', filterTable);
     
     // Selección múltiple
     const selectAll = document.getElementById('select-all');
@@ -494,7 +535,7 @@
         updateBulkActions();
     });
     
-    // Bulk Delete - Mostrar modal de confirmación
+    // Bulk Delete
     document.getElementById('bulk-delete')?.addEventListener('click', function() {
         const selected = document.querySelectorAll('.user-checkbox:checked');
         const ids = Array.from(selected).map(cb => cb.value);
@@ -511,14 +552,12 @@
         document.body.style.overflow = 'hidden';
     });
     
-    // Confirmar bulk delete
     document.getElementById('confirm-bulk-delete')?.addEventListener('click', function() {
         const modal = document.getElementById('bulk-delete-modal');
         const ids = pendingDeleteIds;
         
         if (ids.length === 0) return;
         
-        // Realizar petición AJAX para eliminar múltiples usuarios
         fetch('/admin/users/bulk-delete', {
             method: 'POST',
             headers: {
@@ -530,17 +569,17 @@
         .then(response => response.json())
         .then(data => {
             if (data.success) {
-                showToast('Éxito', `Se eliminaron ${data.deletedCount} usuario(s) correctamente`, 'success');
+                showToast('ÉXITO', `Se eliminaron ${data.deletedCount} usuario(s) correctamente`, 'success');
                 setTimeout(() => {
                     location.reload();
                 }, 1500);
             } else {
-                showToast('Error', data.message || 'Error al eliminar usuarios', 'error');
+                showToast('ERROR', data.message || 'Error al eliminar usuarios', 'error');
             }
         })
         .catch(error => {
             console.error('Error:', error);
-            showToast('Error', 'Ocurrió un error al eliminar los usuarios', 'error');
+            showToast('ERROR', 'Ocurrió un error al eliminar los usuarios', 'error');
         })
         .finally(() => {
             modal.classList.add('hidden');
@@ -549,7 +588,6 @@
         });
     });
     
-    // Cancelar bulk delete
     document.getElementById('cancel-bulk-delete')?.addEventListener('click', function() {
         document.getElementById('bulk-delete-modal').classList.add('hidden');
         document.body.style.overflow = '';
@@ -562,70 +600,6 @@
             document.body.style.overflow = '';
             pendingDeleteIds = [];
         }
-    });
-    
-    // Bulk Activar
-    document.getElementById('bulk-activate')?.addEventListener('click', function() {
-        const selected = document.querySelectorAll('.user-checkbox:checked');
-        const ids = Array.from(selected).map(cb => cb.value);
-        
-        if (ids.length === 0) return;
-        
-        fetch('/admin/users/bulk-activate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({ ids: ids })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showToast('Éxito', `Se activaron ${data.updatedCount} usuario(s) correctamente`, 'success');
-                setTimeout(() => {
-                    location.reload();
-                }, 1500);
-            } else {
-                showToast('Error', data.message || 'Error al activar usuarios', 'error');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showToast('Error', 'Ocurrió un error al activar los usuarios', 'error');
-        });
-    });
-    
-    // Bulk Desactivar
-    document.getElementById('bulk-deactivate')?.addEventListener('click', function() {
-        const selected = document.querySelectorAll('.user-checkbox:checked');
-        const ids = Array.from(selected).map(cb => cb.value);
-        
-        if (ids.length === 0) return;
-        
-        fetch('/admin/users/bulk-deactivate', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-                'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
-            },
-            body: JSON.stringify({ ids: ids })
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.success) {
-                showToast('Éxito', `Se desactivaron ${data.updatedCount} usuario(s) correctamente`, 'success');
-                setTimeout(() => {
-                    location.reload();
-                }, 1500);
-            } else {
-                showToast('Error', data.message || 'Error al desactivar usuarios', 'error');
-            }
-        })
-        .catch(error => {
-            console.error('Error:', error);
-            showToast('Error', 'Ocurrió un error al desactivar los usuarios', 'error');
-        });
     });
     
     // Exportar usuarios
@@ -655,82 +629,7 @@
         document.body.removeChild(link);
         URL.revokeObjectURL(url);
         
-        showToast('Exportación', 'Usuarios exportados correctamente', 'success');
+        showToast('EXPORTACIÓN', 'Usuarios exportados correctamente', 'success');
     });
 </script>
-
-@push('styles')
-<style>
-    .stat-card {
-        background: #19191c;
-        border: 1px solid rgba(228, 0, 124, 0.2);
-        border-radius: 1rem;
-        transition: all 0.2s ease;
-    }
-    
-    .stat-card:hover {
-        border-color: #E4007C;
-        transform: translateY(-2px);
-    }
-    
-    .input-admin {
-        background: rgba(255, 255, 255, 0.06);
-        border: 1px solid rgba(228, 0, 124, 0.35);
-        border-radius: 0.5rem;
-        padding: 0.6rem 0.75rem;
-        color: #FAF9F6;
-        width: 100%;
-        outline: none;
-        transition: all 0.2s ease;
-    }
-    
-    .input-admin:focus {
-        border-color: #E4007C;
-        box-shadow: 0 0 0 2px rgba(228, 0, 124, 0.25);
-    }
-    
-    input[type="checkbox"] {
-        accent-color: #E4007C;
-        width: 1rem;
-        height: 1rem;
-        cursor: pointer;
-    }
-    
-    .user-row {
-        transition: background-color 0.2s ease;
-    }
-    
-    .pagination {
-        display: flex;
-        justify-content: center;
-        gap: 0.5rem;
-        flex-wrap: wrap;
-    }
-    
-    .pagination .page-item .page-link {
-        background: #19191c;
-        border: 1px solid rgba(228, 0, 124, 0.25);
-        color: #FAF9F6;
-        padding: 0.5rem 0.85rem;
-        border-radius: 0.5rem;
-        transition: all 0.2s ease;
-        font-size: 0.875rem;
-    }
-    
-    .pagination .page-item.active .page-link {
-        background: #E4007C;
-        border-color: #E4007C;
-    }
-    
-    .pagination .page-item.disabled .page-link {
-        opacity: 0.5;
-        cursor: not-allowed;
-    }
-    
-    .pagination .page-item:not(.disabled):not(.active) .page-link:hover {
-        border-color: #E4007C;
-        background: rgba(228, 0, 124, 0.1);
-    }
-</style>
 @endpush
-@endsection
