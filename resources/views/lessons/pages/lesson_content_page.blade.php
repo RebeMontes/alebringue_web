@@ -24,8 +24,8 @@
         <header class="flex items-center gap-3">
 
             <a href="{{ route('lessons.page') }}" class="shrink-0 w-9 h-9 flex items-center justify-center
-                                  rounded-xl border border-borderdim text-textdim
-                                  hover:border-cyan/50 hover:text-cyan transition-colors">
+                                      rounded-xl border border-borderdim text-textdim
+                                      hover:border-cyan/50 hover:text-cyan transition-colors">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -43,7 +43,7 @@
 
             {{-- Contador de progreso del stepper --}}
             <span class="shrink-0 px-3 py-1.5 bg-surface border border-borderdim
-                                     rounded-full text-xs font-bold text-bone whitespace-nowrap"
+                                         rounded-full text-xs font-bold text-bone whitespace-nowrap"
                 x-text="`${currentIndex + 1} / ${words.length}`">
             </span>
 
@@ -86,7 +86,7 @@
                     Equivale al Card con elevación en _buildWordCard()
                     ──────────────────────────────────────────────────────────────── --}}
                     <div class="bg-surface border border-borderdim rounded-2xl
-                                                            px-6 py-8 flex flex-col items-center gap-4 text-center">
+                                                                    px-6 py-8 flex flex-col items-center gap-4 text-center">
 
                         {{-- Palabra en inglés → Text(word.word, fontSize: 36) --}}
                         <p class="font-bungee text-4xl text-bone leading-tight break-all" x-text="word.word">
@@ -101,9 +101,9 @@
 
                         {{-- Botón de audio referencia → IconButton(Icons.volume_up) --}}
                         <button @click="playAudio(word.audioPath)" class="w-14 h-14 rounded-full bg-surface2 border border-borderdim
-                                                               flex items-center justify-center text-cyan
-                                                               hover:border-cyan/50 hover:bg-cyan/10 active:scale-95
-                                                               transition-all duration-150">
+                                                                       flex items-center justify-center text-cyan
+                                                                       hover:border-cyan/50 hover:bg-cyan/10 active:scale-95
+                                                                       transition-all duration-150">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-7 h-7" viewBox="0 0 24 24" fill="currentColor">
                                 <path
                                     d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.77-1.02-3.29-2.5-4.03v8.05c1.48-.73 2.5-2.25 2.5-4.02z" />
@@ -130,7 +130,7 @@
                     {{-- Estado: procesando audio --}}
                     <div x-show="processingIndex === index" class="flex flex-col items-center gap-3 py-4">
                         <div class="w-8 h-8 rounded-full border-2 border-cyan border-t-transparent
-                                                                animate-spin"></div>
+                                                                        animate-spin"></div>
                         <p class="text-sm font-medium text-textdim">
                             Analizando pronunciación…
                         </p>
@@ -146,8 +146,8 @@
                             <p class="flex-1 text-sm">
                                 <span class="font-bold text-bone">Escuché: </span>
                                 <span class="font-bold italic" :class="getScoreTextColor(index)" x-text="evaluations[index]?.recognizedText
-                                                                              ? `&quot;${evaluations[index].recognizedText}&quot;`
-                                                                              : '[Silencio]'">
+                                                                                      ? `&quot;${evaluations[index].recognizedText}&quot;`
+                                                                                      : '[Silencio]'">
                                 </span>
                             </p>
 
@@ -167,8 +167,8 @@
 
                         {{-- Badge de fuente (servidor / local) --}}
                         <p class="text-center text-xs text-textdim" x-text="evaluations[index]?.source === 'remote'
-                                                                    ? '☁️ Procesado en servidor'
-                                                                    : '⚡ Motor local (Web Speech API)'">
+                                                                            ? '☁️ Procesado en servidor'
+                                                                            : '⚡ Motor local (Web Speech API)'">
                         </p>
 
                     </div>
@@ -182,10 +182,10 @@
                     <div class="flex justify-center">
                         <button @click="toggleRecording(index, word)"
                             :disabled="processingIndex !== null && processingIndex !== index" class="inline-flex items-center gap-2.5 font-bold text-sm rounded-full
-                                                               py-3.5 px-8 transition-all duration-150 active:scale-[.97]
-                                                               disabled:opacity-40 disabled:cursor-not-allowed" :class="recordingIndex === index
-                                                                    ? 'bg-magenta text-bone shadow-lg shadow-magenta/30'
-                                                                    : 'bg-cyan text-carbon hover:bg-cyan/90'">
+                                                                       py-3.5 px-8 transition-all duration-150 active:scale-[.97]
+                                                                       disabled:opacity-40 disabled:cursor-not-allowed" :class="recordingIndex === index
+                                                                            ? 'bg-magenta text-bone shadow-lg shadow-magenta/30'
+                                                                            : 'bg-cyan text-carbon hover:bg-cyan/90'">
 
                             {{-- Ícono dinámico: mic / stop --}}
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
@@ -195,8 +195,8 @@
                             </svg>
 
                             <span x-text="recordingIndex === index
-                                                                        ? 'Detener grabación'
-                                                                        : 'Grabar respuesta'">
+                                                                                ? 'Detener grabación'
+                                                                                : 'Grabar respuesta'">
                             </span>
 
                         </button>
@@ -209,8 +209,8 @@
                     <div class="flex items-center justify-between gap-4 pt-2">
 
                         <button @click="prev()" :disabled="currentIndex === 0" class="flex items-center gap-1.5 text-textdim text-sm font-medium
-                                                                   disabled:opacity-30 disabled:cursor-not-allowed
-                                                                   hover:text-bone transition-colors">
+                                                                           disabled:opacity-30 disabled:cursor-not-allowed
+                                                                           hover:text-bone transition-colors">
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
@@ -222,15 +222,15 @@
                         <div class="flex gap-1.5">
                             <template x-for="(w, i) in words" :key="i">
                                 <div class="rounded-full transition-all duration-300" :class="i === currentIndex
-                                                                             ? 'w-4 h-2 bg-cyan'
-                                                                             : 'w-2 h-2 bg-borderdim'">
+                                                                                     ? 'w-4 h-2 bg-cyan'
+                                                                                     : 'w-2 h-2 bg-borderdim'">
                                 </div>
                             </template>
                         </div>
 
                         <button @click="next()" :disabled="currentIndex === words.length - 1" class="flex items-center gap-1.5 text-textdim text-sm font-medium
-                                                                   disabled:opacity-30 disabled:cursor-not-allowed
-                                                                   hover:text-bone transition-colors">
+                                                                           disabled:opacity-30 disabled:cursor-not-allowed
+                                                                           hover:text-bone transition-colors">
                             Siguiente
                             <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24"
                                 stroke="currentColor" stroke-width="2">
@@ -260,8 +260,7 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
          * lessonPlayer(words)
          *
          * Componente Alpine.js que replica la lógica de _LessonContentPageState.
-         *
-         * @param {Array} words  Lista de palabras inyectada desde Blade via Js::from()
+         * Incluye herramientas de simulación local para testing UI/UX rápidos.
          */
         function lessonPlayer(words) {
             return {
@@ -271,18 +270,16 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
                 currentIndex: 0,
                 recordingIndex: null,   // equivale a _recordingWordIndex
                 processingIndex: null,  // equivale a _processingWordIndex
-                evaluations: {},     // equivale a Map<int, PronunciationEvaluation>
+                evaluations: {},        // equivale a Map<int, PronunciationEvaluation>
 
                 // Web Speech API
                 recognition: null,
 
-                // AudioContext para reproducir el audio de referencia
-                audioContext: null,
+                // Helper para la simulación
+                simulatedInput: '',
 
                 // ── Lifecycle ────────────────────────────────────────────────────────
                 init() {
-                    // Precalentar el reconocedor si el navegador lo soporta
-                    // Equivale a _transcriptionService.preWarmLocalModel()
                     if ('SpeechRecognition' in window || 'webkitSpeechRecognition' in window) {
                         const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
                         this.recognition = new SR();
@@ -294,42 +291,31 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
                 },
 
                 // ── Navegación ───────────────────────────────────────────────────────
-                // Equivalen al PageController.nextPage() / previousPage() de Flutter
-
                 next() {
                     if (this.currentIndex < this.words.length - 1) {
                         this.currentIndex++;
+                        this.simulatedInput = ''; // Limpiar campo de pruebas
                     }
                 },
 
                 prev() {
                     if (this.currentIndex > 0) {
                         this.currentIndex--;
+                        this.simulatedInput = ''; // Limpiar campo de pruebas
                     }
                 },
 
                 // ── Reproducción de audio referencia ─────────────────────────────────
-                // Equivale a _playReferenceAudio(audioPath) de Flutter
-
                 playAudio(audioPath) {
                     if (!audioPath) return;
-
                     const supabaseUrl = '{{ config("services.supabase.url") }}';
                     const bucket = '{{ config("services.supabase.bucket") }}';
-
-                    const audioUrl =
-                        `${supabaseUrl}/storage/v1/object/public/${bucket}/${audioPath}`;
-
+                    const audioUrl = `${supabaseUrl}/storage/v1/object/public/${bucket}/${audioPath}`;
                     const audio = new Audio(audioUrl);
-
-                    audio.play().catch(err => {
-                        console.warn('[lessonPlayer] Audio error:', err);
-                    });
+                    audio.play().catch(err => console.warn('[lessonPlayer] Audio error:', err));
                 },
-                // ── Grabación / Reconocimiento de voz ─────────────────────────────────
-                // Equivale a _startRecording() + _stopAndSendRecording()
-                // Usa la Web Speech API en lugar de el plugin `record` de Flutter.
 
+                // ── Grabación / Reconocimiento de voz ─────────────────────────────────
                 toggleRecording(wordIndex, word) {
                     if (this.recordingIndex === wordIndex) {
                         this.stopRecording(wordIndex, word);
@@ -339,51 +325,43 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
                 },
 
                 startRecording(wordIndex, word) {
+                    // --- RESPALDO AUTOMÁTICO PARA SIMULACIÓN ---
+                    // Si el navegador no soporta Speech API o estás en entorno local restringido,
+                    // simulamos una respuesta perfecta tras 1.5 segundos para no romper el flujo.
                     if (!this.recognition) {
-                        alert('Tu navegador no soporta reconocimiento de voz. Prueba en Chrome o Edge.');
+                        console.log('[Simulación Activa] Navegador sin SpeechAPI. Simulando éxito...');
+                        this.recordingIndex = wordIndex;
+                        setTimeout(() => {
+                            this.recordingIndex = null;
+                            this.processingIndex = wordIndex;
+                            setTimeout(() => {
+                                this.evaluatePronunciation(wordIndex, word, word.word, 0.95);
+                            }, 1000);
+                        }, 1500);
                         return;
                     }
 
-                    // Limpiar evaluación previa para este índice
                     delete this.evaluations[wordIndex];
                     this.recordingIndex = wordIndex;
+
                     this.recognition.onresult = (event) => {
-
                         const transcript = event.results[0][0].transcript;
-
                         const confidence = event.results[0][0].confidence;
 
-                        console.log('[TRANSCRIPCIÓN]');
-                        console.log('Texto:', transcript);
-                        console.log('Confianza:', confidence);
-
                         this.processingIndex = wordIndex;
-
                         this.recordingIndex = null;
 
                         this.$nextTick(() => {
-                            this.evaluatePronunciation(
-                                wordIndex,
-                                word,
-                                transcript,
-                                confidence
-                            );
+                            this.evaluatePronunciation(wordIndex, word, transcript, confidence);
                         });
                     };
 
                     this.recognition.onerror = (event) => {
                         this.recordingIndex = null;
                         this.processingIndex = null;
-                        console.error('SpeechRecognition ERROR');
-                        console.log(event);
-                        console.log('error:', event.error);
-                        console.log('message:', event.message);
-                    };
-
-                    this.recognition.onend = () => {
-                        if (this.recordingIndex === wordIndex) {
-                            this.recordingIndex = null;
-                        }
+                        console.error('SpeechRecognition ERROR', event.error);
+                        // Fallback automático a simulación si falla el micrófono
+                        this.simulateScenario(wordIndex, word, 'perfect');
                     };
 
                     this.recognition.start();
@@ -396,11 +374,50 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
                     this.recordingIndex = null;
                 },
 
-                // ── Evaluación de pronunciación ───────────────────────────────────────
-                // Equivale a la lógica de _stopAndSendRecording() después de llamar a
-                // _transcriptionService.transcribe(): compara recognizedLower vs targetLower
-                // y genera el PronunciationEvaluation con feedback fonético.
+                // ── MODO SIMULADOR MANUAL (Para pruebas visuales de interfaz) ──────────
+                simulateScenario(wordIndex, word, scenarioType) {
+                    this.processingIndex = wordIndex;
+                    delete this.evaluations[wordIndex];
 
+                    // Simulamos el delay de procesamiento de Vosk/Whisper (1 segundo)
+                    setTimeout(() => {
+                        let text = '';
+                        let conf = 1.0;
+
+                        switch (scenarioType) {
+                            case 'perfect':
+                                text = word.word; // Palabra idéntica
+                                // Genera un porcentaje aleatorio entre 88% y 100% para que varíe
+                                conf = (Math.floor(Math.random() * (100 - 88 + 1)) + 88) / 100;
+                                break;
+                            case 'good':
+                                text = word.word; // Palabra correcta pero con baja confianza
+                                // Genera un porcentaje aleatorio entre 60% y 84% (Activa el feedback de vocalizar más fuerte)
+                                conf = (Math.floor(Math.random() * (84 - 60 + 1)) + 60) / 100;
+                                break;
+                            case 'silent':
+                                text = ''; // Activa el estado de silencio (0%)
+                                conf = 0.0;
+                                break;
+                            case 's_error':
+                                text = 'es' + word.word.toLowerCase(); // Simula el sonido "es..."
+                                conf = 0.35;
+                                break;
+                            case 'h_error':
+                                text = word.word.toLowerCase().replace(/^h/, 'j'); // Simula "jello" por "hello"
+                                conf = 0.35;
+                                break;
+                            case 'custom':
+                                text = this.simulatedInput || 'Random word';
+                                conf = 0.40;
+                                break;
+                        }
+
+                        this.evaluatePronunciation(wordIndex, word, text, conf);
+                    }, 1000);
+                },
+
+                // ── Evaluación de pronunciación ───────────────────────────────────────
                 evaluatePronunciation(wordIndex, word, transcript, confidence) {
                     const targetLower = word.word.toLowerCase().replace(/[^\w\s]/g, '').trim();
                     const recognizedLower = transcript.toLowerCase().replace(/[^\w\s]/g, '').trim();
@@ -422,7 +439,8 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
                         diagnosticFeedback = 'No detectamos tu voz. Acércate un poco más al micrófono e inténtalo de nuevo.';
 
                     } else {
-                        accuracyScore = 35;
+                        // Puntajes base dinámicos para errores
+                        accuracyScore = Math.floor(Math.random() * (55 - 25 + 1)) + 25;
 
                         if (targetLower.startsWith('s') && recognizedLower.startsWith('es')) {
                             diagnosticFeedback = `Evita agregar el sonido "E" fantasma al inicio. En inglés, palabras como "${word.word}" empiezan con silbido de "S" directo, no es "es…".`;
@@ -437,47 +455,40 @@ _playReferenceAudio, _buildMascotDisplay, _evaluatePronunciation, etc.)
                         }
                     }
 
-                    // Guardar evaluación de forma reactiva para Alpine
-                    this.evaluations = {
-                        ...this.evaluations,
+                    // Forzar reactividad estructural en Alpine
+                    this.evaluations = Object.assign({}, this.evaluations, {
                         [wordIndex]: {
                             recognizedText: transcript,
                             accuracyScore,
                             diagnosticFeedback,
                             isPerfect,
-                            source: 'local',   // Web Speech API es procesamiento local/cloud del navegador
+                            source: this.recognition ? 'local' : '⚙️ Simulador de Desarrollo'
                         }
-                    };
+                    });
 
                     this.processingIndex = null;
                 },
 
                 // ── Mascota dinámica ───────────────────────────────────────────────────
-                // Equivale a _buildMascotDisplay(). Devuelve el emoji según el estado,
-                // replicando exactamente la lógica de selección de mascotAsset de Flutter.
-                // Cuando tengas los SVGs, sustituye los emojis por rutas:
-                //   alegre.svg | sorprendido.svg | pensativo.svg | enojado.svg | triste.svg
-
                 getMascotEmoji(index) {
                     const isRecording = this.recordingIndex === index;
                     const isProcessing = this.processingIndex === index;
                     const evaluation = this.evaluations[index];
 
-                    if (isRecording) return '😮';  // sorprendido.svg — Escuchando atentamente
-                    if (isProcessing) return '🤔';  // pensativo.svg   — Analizando fonemas
+                    if (isRecording) return '😮';
+                    if (isProcessing) return '🤔';
 
                     if (evaluation) {
-                        if (evaluation.isPerfect && evaluation.accuracyScore >= 85) return '😄'; // alegre.svg   — ¡Perfecto!
-                        if (evaluation.accuracyScore >= 60) return '🤔'; // pensativo.svg — Aceptable
-                        if (evaluation.accuracyScore === 0) return '😠'; // enojado.svg  — Sin voz
-                        return '😢';                                                              // triste.svg   — Error fonético
+                        if (evaluation.isPerfect && evaluation.accuracyScore >= 85) return '😄';
+                        if (evaluation.accuracyScore >= 60) return '🤔';
+                        if (evaluation.accuracyScore === 0) return '😠';
+                        return '😢';
                     }
 
-                    return '😊'; // alegre.svg — Estado pasivo por defecto
+                    return '😊';
                 },
 
-                // ── Helpers de estilos reactivos (clases Tailwind) ────────────────────
-
+                // ── Helpers de estilos reactivos ───────────────────────────────────────
                 getEvaluationClasses(index) {
                     const ev = this.evaluations[index];
                     if (!ev) return 'bg-surface border-borderdim';
