@@ -12,8 +12,6 @@ class LessonController extends Controller
     {
         $lessons = Lesson::with('level')->paginate(10);
         $levels = EnglishLevel::all();
-
-        $lessons = Lesson::with('level')->get();
         return view('lessons.index', compact('lessons', 'levels'));
     }
 
@@ -69,5 +67,18 @@ class LessonController extends Controller
     {
         $lesson->delete();
         return back();
+    }
+
+    public function lessonPage()
+    {
+        $lessons = Lesson::with('level')->get();
+
+        return view('lessons.pages.lesson_page', compact('lessons'));
+    }
+
+    public function lessonContentPage(Lesson $lesson)
+    {
+        $words = $lesson->words()->get();
+        return view('lessons.pages.lesson_content_page', compact('lesson'));
     }
 }
