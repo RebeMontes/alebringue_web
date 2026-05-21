@@ -352,6 +352,11 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('classrooms.user') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-chalkboard mr-3 w-5"></i> Clases
+                                </a>
+                            </li>
+                            <li>
                                 <a href="#" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
                                     <i class="fas fa-microphone-alt mr-3 w-5"></i> Practicar
                                 </a>

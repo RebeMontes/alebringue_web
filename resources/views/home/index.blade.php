@@ -97,12 +97,17 @@
                 Niveles
             </a>
 
-            <a href="{{ route('words.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+            <a href="{{ route('classrooms.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+                <i class="fas fa-chalkboard"></i>
+                Clases 
+            </a>
+
+           <a href="#" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
                 <i class="fas fa-font"></i>
                 Palabras
             </a>
 
-            <a href="{{ route('categories.index') }}" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
+            <a href="#" class="bg-transparent border border-ale-border hover:border-ale-pink text-white px-5 py-2.5 rounded-lg font-medium transition flex items-center gap-2">
                 <i class="fas fa-tags"></i>
                 Categorías
             </a>
