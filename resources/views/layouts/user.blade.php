@@ -259,6 +259,7 @@
                     <a href="#" class="text-ale-text-dim hover:text-ale-pink transition">Lecciones</a>
                     <a href="#" class="text-ale-text-dim hover:text-ale-pink transition">Practicar</a>
                     <a href="#" class="text-ale-text-dim hover:text-ale-pink transition">Mi Progreso</a>
+                    <a href="{{ route('translator.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Traductor</a>
                 </nav>
                 
                 <!-- Perfil y notificaciones -->
@@ -363,6 +364,11 @@
                             <li>
                                 <a href="#" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
                                     <i class="fas fa-chart-line mr-3 w-5"></i> Progreso
+                                </a>
+                            </li>
+                            <li>
+                                <a href="{{ route('translator.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-language mr-3 w-5"></i> Traductor
                                 </a>
                             </li>
                         </ul>
