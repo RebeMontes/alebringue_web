@@ -229,12 +229,19 @@
         <!-- Sidebar Admin - altura completa -->
         <aside class="sidebar w-64 border-r border-ale-border z-30 flex-shrink-0">
             <div class="p-5">
-                <!-- Logo -->
-                <div class="mb-8 flex items-center justify-center">
-                    <a href="{{ route('home') }}" class="flex items-center space-x-2">
-                        <i class="fas  text-ale-pink text-2xl"></i>
-                        <span class="brand-logo text-xl font-bold">ALEBRINGÜE</span>
-                    </a>
+                <!-- Logo y botón mobile -->
+                <div class="flex items-center space-x-3">
+                    <div class="flex items-center">
+                        <a href="/" class="inline-block focus:outline-none" aria-label="Ir al inicio de Alebringüe">
+                            <img 
+                                src="{{ asset('images/Logo.png') }}" 
+                                alt="Logo Alebringüe" 
+                                class="w-auto h-12 md:h-16 object-contain"
+                                loading="eager"
+                                decoding="async"
+                            >
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Admin Info -->
