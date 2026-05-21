@@ -663,3 +663,11 @@
         .welcome-page footer {
             background: #19191c;
         } 
+
+       .welcome-page section img {
+        transition: transform 0.4s ease;
+    }
+
+    .welcome-page section img:hover {
+        transform: scale(1.05);
+    }
