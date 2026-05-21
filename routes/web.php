@@ -7,9 +7,9 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\EnglishLevelController;
 use App\Http\Controllers\ClassController;
-
 use App\Http\Controllers\WordController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\TranslatorController;
 
 // Públicas
 Route::get('/', function () {
@@ -25,7 +25,8 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth')->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+    Route::get('/traductor', [TranslatorController::class, 'index'])->name('translator.index');
+    Route::post('/traductor/translate', [TranslatorController::class, 'translate'])->name('translator.translate');
 });
 
 // ADMIN
@@ -93,7 +94,7 @@ Route::middleware(['auth', 'user_type:user'])->group(function () {
     Route::get('/clases', [ClassController::class, 'userIndex'])->name('classrooms.user');
     Route::post('/clases/unirse', [ClassController::class, 'join'])->name('classrooms.join');
     Route::get('/clases/{classroom}/aula', [ClassController::class, 'enter'])->name('classrooms.enter');
-    Route::get('/lessons', [LessonController::class, 'lessonPage'])->name('lessons.page');
-    Route::get('/lessons/{lesson}', [LessonController::class, 'lessonContentPage'])->name('lessons.content');
-
+    Route::get('/user/lessons', [LessonController::class, 'lessonPage'])->name('lessons.page');
+    Route::get('/user/lessons/{lesson}', [LessonController::class, 'lessonContentPage'])->name('lessons.content');
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile.index');
 });

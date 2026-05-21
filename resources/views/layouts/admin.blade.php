@@ -232,7 +232,7 @@
                 <!-- Logo y botón mobile -->
                 <div class="flex items-center space-x-3">
                     <div class="flex items-center">
-                        <a href="/" class="inline-block focus:outline-none" aria-label="Ir al inicio de Alebringüe">
+                        <a href="#" class="inline-block focus:outline-none" aria-label="Ir al inicio de Alebringüe">
                             <img 
                                 src="{{ asset('images/Logo.png') }}" 
                                 alt="Logo Alebringüe" 

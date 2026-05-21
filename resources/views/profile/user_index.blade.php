@@ -19,10 +19,10 @@
         </div>
         
         <!-- Botón editar perfil -->
-        <a href="#" class="btn-primary flex items-center gap-2 text-sm">
+        <!-- <a href="#" class="btn-primary flex items-center gap-2 text-sm">
             <i class="fas fa-pen"></i>
             Editar perfil
-        </a>
+        </a> -->
     </div>
     
     <!-- Grid de información principal -->
@@ -231,7 +231,7 @@
             </div>
              -->
             <!-- Acciones de cuenta -->
-            <div class="card-ale p-6">
+            <!-- <div class="card-ale p-6">
                 <h3 class="text-lg font-semibold text-ale-text mb-4 flex items-center gap-2 border-b border-ale-border pb-3">
                     <i class="fas fa-shield-alt text-ale-pink"></i>
                     Seguridad
@@ -258,7 +258,7 @@
                     </form>
                 </div>
             </div>
-            
+             -->
         </div>
         
     </div>

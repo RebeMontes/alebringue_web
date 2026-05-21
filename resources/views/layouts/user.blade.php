@@ -8,19 +8,29 @@
     <title>@yield('title', 'Alebringüe - Domina tu pronunciación')</title>
 
     <!-- Google Fonts -->
+<<<<<<< HEAD
     <link
         href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..28,300;12..28,400;12..28,500;12..28,600;12..28,700;12..28,800&family=Bungee&display=swap"
         rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Space+Grotesk:wght@400;500;600;700&display=swap"
         rel="stylesheet" />
 
+=======
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..28,300;12..28,400;12..28,500;12..28,600;12..28,700;12..28,800&family=Bungee&display=swap" rel="stylesheet">
+    
+>>>>>>> ca68f2cb7014c6a0bca2d9faa81bfe7a1d88000c
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<<<<<<< HEAD
 
     <!-- <script>
+=======
+    
+    <script>
+>>>>>>> ca68f2cb7014c6a0bca2d9faa81bfe7a1d88000c
         tailwind.config = {
             darkMode: 'class',
             theme: {
@@ -37,6 +47,7 @@
                 }
             }
         }
+<<<<<<< HEAD
     </script> -->
 
     {{-- Configuración del tema: paleta idéntica a los tokens Flutter --}}
@@ -61,6 +72,8 @@
                 }
             }
         }
+=======
+>>>>>>> ca68f2cb7014c6a0bca2d9faa81bfe7a1d88000c
     </script>
 
     <style>
@@ -71,7 +84,7 @@
         }
 
         body {
-            background-color: #131313;
+            background-color: #19191c;
             font-family: 'Bricolage Grotesque', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, sans-serif;
             color: #FAF9F6;
         }
@@ -279,10 +292,16 @@
                 <!-- Navegación desktop -->
                 <nav class="hidden md:flex items-center space-x-6">
                     <a href="{{ route('home') }}" class="text-ale-text-dim hover:text-ale-pink transition">Inicio</a>
+<<<<<<< HEAD
                     <a href="{{ route('lessons.page') }}"
                         class="text-ale-text-dim hover:text-ale-pink transition">Lecciones</a>
                     <a href="#" class="text-ale-text-dim hover:text-ale-pink transition">Practicar</a>
                     <a href="#" class="text-ale-text-dim hover:text-ale-pink transition">Mi Progreso</a>
+=======
+                    <a href="{{ route('levels.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Niveles</a>
+                    <a href="{{ route('lessons.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Lecciones</a>
+                    <a href="{{ route('translator.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Traductor</a>
+>>>>>>> ca68f2cb7014c6a0bca2d9faa81bfe7a1d88000c
                 </nav>
 
                 <!-- Perfil y notificaciones -->
@@ -316,6 +335,7 @@
                                 <span class="badge-ale text-xs mt-1 inline-block">Estudiante</span>
                             </div>
                             <div class="py-2">
+<<<<<<< HEAD
                                 <a href="#"
                                     class="sidebar-link block px-4 py-2 text-sm text-ale-text-dim hover:text-ale-pink">
                                     <i class="fas fa-user-circle mr-3 w-4"></i> Mi Perfil
@@ -327,6 +347,10 @@
                                 <a href="#"
                                     class="sidebar-link block px-4 py-2 text-sm text-ale-text-dim hover:text-ale-pink">
                                     <i class="fas fa-cog mr-3 w-4"></i> Configuración
+=======
+                                <a href="{{ route('profile.index') }}" class="sidebar-link block px-4 py-2 text-sm text-ale-text-dim hover:text-ale-pink">
+                                    <i class="fas fa-cog mr-3 w-4"></i> Mi Perfil
+>>>>>>> ca68f2cb7014c6a0bca2d9faa81bfe7a1d88000c
                                 </a>
                             </div>
                             <div class="border-t border-ale-border py-2">
@@ -386,6 +410,7 @@
                                 </a>
                             </li>
                             <li>
+<<<<<<< HEAD
                                 <a href="{{ route('lessons.page') }}"
                                     class="sidebar-link block px-3 py-2.5 rounded-lg transition">
                                     <i class="fas fa-chalkboard-user mr-3 w-5"></i> Lecciones
@@ -398,13 +423,30 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="#" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
-                                    <i class="fas fa-microphone-alt mr-3 w-5"></i> Practicar
+=======
+                                <a href="{{ route('levels.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-layer-group mr-3 w-5"></i> Niveles
                                 </a>
                             </li>
                             <li>
+                                <a href="{{ route('lessons.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-chalkboard-user mr-3 w-5"></i> Lecciones
+                                </a>
+                            </li>
+                            <!-- <li>
+>>>>>>> ca68f2cb7014c6a0bca2d9faa81bfe7a1d88000c
+                                <a href="#" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-microphone-alt mr-3 w-5"></i> Practicar
+                                </a>
+                            </li> -->
+                            <!-- <li>
                                 <a href="#" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
                                     <i class="fas fa-chart-line mr-3 w-5"></i> Progreso
+                                </a>
+                            </li> -->
+                            <li>
+                                <a href="{{ route('translator.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-language mr-3 w-5"></i> Traductor
                                 </a>
                             </li>
                         </ul>
