@@ -68,7 +68,7 @@
             </div>
 
             <!-- Campo Tipo de usuario -->
-            <div>
+            <!-- <div>
                 <label class="block text-gray-300 text-sm font-medium mb-2">
                     <i class="fas fa-user-tag mr-2 text-ale-pink"></i>
                     Tipo de usuario
@@ -80,10 +80,10 @@
                 @error('user_type')
                     <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                 @enderror
-            </div>
+            </div> -->
 
             <!-- Campo Estado -->
-            <div>
+            <!-- <div>
                 <label class="block text-gray-300 text-sm font-medium mb-2">
                     <i class="fas fa-toggle-on mr-2 text-ale-pink"></i>
                     Estado
@@ -95,7 +95,7 @@
                 @error('status')
                     <p class="text-red-400 text-xs mt-1">{{ $message }}</p>
                 @enderror
-            </div>
+            </div> -->
 
             <!-- Botones de acción -->
             <div class="flex items-center gap-3 pt-4">

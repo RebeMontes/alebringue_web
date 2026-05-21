@@ -6,6 +6,8 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\LessonController;
 use App\Http\Controllers\EnglishLevelController;
+use App\Http\Controllers\WordController;
+use App\Http\Controllers\CategoryController;
 
 // Públicas
 Route::get('/', function () {
@@ -54,10 +56,24 @@ Route::put('/levels/{level}', [EnglishLevelController::class, 'update'])->name('
 Route::get('/levels/{level}', [EnglishLevelController::class, 'show'])->name('levels.show');
 Route::delete('/levels/{level}', [EnglishLevelController::class, 'destroy'])->name('levels.destroy');
 
+Route::get('/words', [WordController::class, 'index'])->name('words.index');
+Route::get('/words/create', [WordController::class, 'create'])->name('words.create');
+Route::post('/words', [WordController::class, 'store'])->name('words.store');
+Route::get('/words/{word}/edit', [WordController::class, 'edit'])->name('words.edit');
+Route::put('/words/{word}', [WordController::class, 'update'])->name('words.update');
+Route::get('/words/{word}', [WordController::class, 'show'])->name('words.show');
+Route::delete('/words/{word}', [WordController::class, 'destroy'])->name('words.destroy');
+
+Route::get('/categories', [CategoryController::class, 'index'])->name('categories.index');
+Route::get('/categories/create', [CategoryController::class, 'create'])->name('categories.create');
+Route::post('/categories', [CategoryController::class, 'store'])->name('categories.store');
+Route::get('/categories/{category}/edit', [CategoryController::class, 'edit'])->name('categories.edit');
+Route::put('/categories/{category}', [CategoryController::class, 'update'])->name('categories.update');
+Route::get('/categories/{category}', [CategoryController::class, 'show'])->name('categories.show');
+Route::delete('/categories/{category}', [CategoryController::class, 'destroy'])->name('categories.destroy');
+
 // Bulk operations
-Route::post('/admin/users/bulk-delete', [UserController::class, 'bulkDelete'])->name('users.bulk-delete');
-Route::post('/admin/users/bulk-activate', [UserController::class, 'bulkActivate'])->name('users.bulk-activate');
-Route::post('/admin/users/bulk-deactivate', [UserController::class, 'bulkDeactivate'])->name('users.bulk-deactivate');
+Route::post('/users/bulk-delete', [UserController::class, 'bulkDelete'])->name('users.bulk-delete');
 
 });
 

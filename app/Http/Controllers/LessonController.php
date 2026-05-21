@@ -10,8 +10,11 @@ class LessonController extends Controller
 {
     public function index()
     {
+        $lessons = Lesson::with('level')->paginate(10);
+        $levels = EnglishLevel::all();
+
         $lessons = Lesson::with('level')->get();
-        return view('lessons.index', compact('lessons'));
+        return view('lessons.index', compact('lessons', 'levels'));
     }
 
     public function create()

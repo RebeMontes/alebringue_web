@@ -104,13 +104,13 @@
             </div>
             
             <!-- Filtro por estado -->
-            <div>
+            <!-- <div>
                 <select id="filter-status" class="input-admin w-full md:w-40">
                     <option value="all">Todos los estados</option>
                     <option value="active">Activos</option>
                     <option value="inactive">Inactivos</option>
                 </select>
-            </div>
+            </div> -->
             
         </div>
     </div>
@@ -185,21 +185,22 @@
                                     <span>Progreso</span>
                                     <span class="font-medium text-ale-pink">{{ $user->progress ?? 0 }}%</span>
                                 </div> -->
-                                <div class="progress-bar h-2">
+                                <!-- <div class="progress-bar h-2">
                                     <div class="progress-fill" style="width: {{ $user->progress ?? 0 }}%"></div>
                                 </div>
                             </div>
-                        </td>
+                        </td> -->
                         <td class="px-4 py-4 align-middle">
                             <div class="flex items-center justify-center gap-3">
                                 <a href="{{ route('users.edit', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Editar">
                                     <i class="fas fa-edit"></i>
                                 </a>
+                               
+                                <a href="{{ route('users.show', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Ver detalles">
+                                    <i class="fas fa-eye"></i> 
+                                </a>
                                 <a href="{{ route('users.destroy', $user->id) }}" type="button" onclick="confirmDelete({{ $user->id }}, '{{ addslashes($user->name) }}')" class="text-ale-text-dim hover:text-red-500 transition p-1" title="Eliminar">
                                     <i class="fas fa-trash-alt"></i>
-                                </a>
-                                <a href="{{ route('users.show', $user->id) }}" class="text-ale-text-dim hover:text-ale-pink transition p-1" title="Ver detalles">
-                                    <i class="fas fa-eye"></i>
                                 </a>
                             </div>
                         </td>

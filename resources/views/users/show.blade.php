@@ -37,7 +37,7 @@
                                 <i class="fas fa-user-graduate mr-1"></i> Estudiante
                             </span>
                         @endif
-                        @if(($user->status ?? 'active') == 'active')
+                        <!-- @if(($user->status ?? 'active') == 'active')
                             <span class="badge-ale bg-green-500/20 text-green-400 px-3 py-1 text-xs rounded-full">
                                 <i class="fas fa-check-circle mr-1"></i> Activo
                             </span>
@@ -45,7 +45,7 @@
                             <span class="badge-ale bg-red-500/20 text-red-400 px-3 py-1 text-xs rounded-full">
                                 <i class="fas fa-times-circle mr-1"></i> Inactivo
                             </span>
-                        @endif
+                        @endif -->
                     </div>
                 </div>
             </div>
@@ -108,7 +108,7 @@
                 </div>
 
                 <!-- Estado -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-ale-border">
+                <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-ale-border">
                     <div class="md:col-span-1">
                         <p class="text-gray-400 text-sm flex items-center gap-2">
                             <i class="fas fa-toggle-on w-4 text-ale-pink"></i>
@@ -126,10 +126,10 @@
                             </span>
                         @endif
                     </div>
-                </div>
+                </div> -->
 
                 <!-- Progreso (solo para estudiantes) -->
-                @if($user->user_type != 'admin')
+                <!-- @if($user->user_type != 'admin')
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2 border-b border-ale-border">
                     <div class="md:col-span-1">
                         <p class="text-gray-400 text-sm flex items-center gap-2">
@@ -148,7 +148,7 @@
                         </div>
                     </div>
                 </div>
-                @endif
+                 @endif -->
 
                 <!-- Fecha de registro -->
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-2 py-2">

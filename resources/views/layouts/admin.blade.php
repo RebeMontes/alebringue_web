@@ -279,12 +279,12 @@
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                            <a href="{{ route('words.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
                                 <i class="fas fa-font mr-3 w-4"></i> Palabras
                             </a>
                         </li>
                          <li>
-                            <a href="#" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
+                            <a href="{{ route('categories.index') }}" class="sidebar-link block px-3 py-2 rounded-lg transition text-sm">
                                 <i class="fas fa-tags mr-3 w-4"></i> Categorías
                             </a>
                         </li>
