@@ -144,4 +144,12 @@ class UserController extends Controller
             'updatedCount' => $updated
         ]);
     }
+
+    // PERFIL
+    public function profile()
+    {
+        $user = auth()->user();
+
+        return view('profile.user_index', compact('user'));
+    }
 }

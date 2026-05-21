@@ -96,5 +96,5 @@ Route::middleware(['auth', 'user_type:user'])->group(function () {
     Route::get('/clases/{classroom}/aula', [ClassController::class, 'enter'])->name('classrooms.enter');
     Route::get('/user/lessons', [LessonController::class, 'lessonPage'])->name('lessons.page');
     Route::get('/user/lessons/{lesson}', [LessonController::class, 'lessonContentPage'])->name('lessons.content');
-
+    Route::get('/profile', [UserController::class, 'profile'])->name('profile.index');
 });

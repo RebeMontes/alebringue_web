@@ -26,11 +26,18 @@
     </div>
     <div class="login-container">
         <!-- Branding -->
-        <div class="brand-header">
-            <div class="brand-name">ALEBRINGÜE</div>
-            <div class="accent-line"></div>
-        </div>
-
+ <div class="brand-header flex flex-col items-center justify-center w-full">
+    <div class="flex items-center justify-center">
+        <img 
+            src="{{ asset('images/Logo.png') }}" 
+            alt="Logo Alebringüe" 
+            class="w-auto h-12 md:h-16 object-contain"
+            loading="eager"
+            decoding="async"
+        >
+    </div>
+    <div class="accent-line mt-4"></div>
+</div>
         <!-- Título y descripción -->
         <div class="auth-header">
             <div class="auth-title">Iniciar sesión</div>
