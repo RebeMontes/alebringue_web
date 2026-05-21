@@ -264,13 +264,17 @@
                 
                 <!-- Logo y botón mobile -->
                 <div class="flex items-center space-x-3">
-                    <button id="mobile-menu-toggle" class="md:hidden text-ale-text focus:outline-none">
-                        <i class="fas fa-bars text-xl"></i>
-                    </button>
-                    <a href="#" class="flex items-center space-x-2">
-                        <i class="fas fa-microphone-alt text-ale-pink text-2xl"></i>
-                        <h1 class="brand-logo text-xl font-bold">ALEBRINGÜE</h1>
-                    </a>
+                    <div class="flex items-center">
+                        <a href="/" class="inline-block focus:outline-none" aria-label="Ir al inicio de Alebringüe">
+                            <img 
+                                src="{{ asset('images/Logo.png') }}" 
+                                alt="Logo Alebringüe" 
+                                class="w-auto h-12 md:h-16 object-contain"
+                                loading="eager"
+                                decoding="async"
+                            >
+                        </a>
+                    </div>
                 </div>
                 
                 <!-- Navegación desktop -->
