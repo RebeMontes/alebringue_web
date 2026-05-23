@@ -4,13 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Alebringüe · Crear cuenta</title>
-  @vite('resources/css/auth/register.css')
+ @vite(['resources/css/app.css', 'resources/js/app.js'])
   <!-- Google Fonts: Bricolage Grotesque (general) & Bungee (brand) -->
   <link 
     href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..28,300;12..28,400;12..28,500;12..28,600;12..28,700;12..28,800&family=Bungee&display=swap" 
     rel="stylesheet">
 </head>
-<body>
+<body class="register-page">
   <div class="top-nav">
   <a href="{{ route('welcome') }}" class="back-link">
     <!-- Ícono flecha -->
@@ -30,11 +30,18 @@
 </div>
 <div class="register-container">
   <!-- Branding igual que login -->
-  <div class="brand-header">
-    <div class="brand-name">ALEBRINGÜE</div>
-    <div class="sub-brand">únete a la experiencia</div>
-    <div class="accent-line"></div>
-  </div>
+<div class="brand-header flex flex-col items-center justify-center w-full">
+    <div class="flex items-center justify-center">
+        <img 
+            src="{{ asset('images/Logo.png') }}" 
+            alt="Logo Alebringüe" 
+            class="w-auto h-12 md:h-16 object-contain"
+            loading="eager"
+            decoding="async"
+        >
+    </div>
+    <div class="accent-line mt-4"></div>
+</div>
 
   <!-- Título y descripción -->
   <div class="auth-header">

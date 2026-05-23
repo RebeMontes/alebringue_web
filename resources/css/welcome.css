@@ -1,8 +1,7 @@
         /* Fondo degradado morado */
-        .bg-gradient-purple {
-            background: #000000
-        }
-        
+     .bg-gradient-purple { 
+        background: #000000
+     }
         .header{
             background: #19191c
         }
@@ -12,7 +11,7 @@
             color: white;
         }
 
-        .btn-empezar a {
+         .btn-empezar a {
             background: #E4007C;
         }
 
@@ -61,7 +60,7 @@
             border-color: rgba(255, 255, 255, 0.4);
         }
 
-        .carousel-dot {
+         .carousel-dot {
             transition: all 0.2s ease;
         }
 
@@ -81,21 +80,21 @@
             }
         }
 
-        .carousel-slide {
+         .carousel-slide {
             animation: fadeInUp 0.5s ease-out;
         }
 
         @media (max-width: 640px) {
-            .brand-name {
+             .brand-name {
                 font-size: 3.5rem;
             }
-            .carousel-slide {
+             .carousel-slide {
                 padding: 0.75rem 1.25rem;
             }
-            .carousel-slide h3 {
+             .carousel-slide h3 {
                 font-size: 1.1rem;
             }
-            .carousel-slide p {
+             .carousel-slide p {
                 font-size: 0.85rem;
             }
         }
@@ -106,6 +105,8 @@
             }
         }
 
-        footer {
+        .welcome-page footer {
             background: #19191c;
         }
+
+        /* Fondo degradado morado */ .bg-gradient-purple { background: #000000 } .header{ background: #19191c } .btn-descargar { background: #E4007C; color: white; } .btn-empezar a { background: #E4007C; } .name-ezq{ background:#E4007C; font-size:1.50rem; background-clip:text; font-family:'Bungee', cursive; -webkit-background-clip:text; color:transparent; } .brand-name { font-family: 'Bungee', cursive; font-size: 5.2rem; letter-spacing: 0.02em; background: #E4007C; background-clip: text; -webkit-background-clip: text; color: transparent; text-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); display: inline-block; margin-bottom: 0.35rem; } /* Estilos para el carrusel */ .carousel-container { max-width: 500px; margin: 0 auto; perspective: 1000px; } .carousel-slide { background: rgba(255, 255, 255, 0.12); backdrop-filter: blur(12px); border-radius: 1.5rem; padding: 1rem 1.5rem; border: 1px solid rgba(255, 255, 255, 0.2); transition: all 0.3s ease; cursor: pointer; } .carousel-slide:hover { background: rgba(255, 255, 255, 0.2); transform: scale(1.02); border-color: rgba(255, 255, 255, 0.4); } .carousel-dot { transition: all 0.2s ease; } .carousel-dot.active { background-color: white; transform: scale(1.2); } @keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } } .carousel-slide { animation: fadeInUp 0.5s ease-out; } @media (max-width: 640px) { .brand-name { font-size: 3.5rem; } .carousel-slide { padding: 0.75rem 1.25rem; } .carousel-slide h3 { font-size: 1.1rem; } .carousel-slide p { font-size: 0.85rem; } } @media (max-width: 480px) { .brand-name { font-size: 2.8rem; } } footer { background: #19191c; }
