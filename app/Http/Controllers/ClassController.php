@@ -18,6 +18,7 @@ class ClassController extends Controller
         return view('classrooms.index', compact('classrooms'));
     }
 
+
     public function create()
     {
         $levels   = EnglishLevel::all();

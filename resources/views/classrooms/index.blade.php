@@ -2,6 +2,7 @@
 @extends('layouts.admin')
 
 @section('title', 'Salones - Admin')
+
 @section('header', 'Gestión de Salones')
 
 @section('content')
