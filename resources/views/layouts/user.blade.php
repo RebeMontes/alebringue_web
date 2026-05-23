@@ -47,6 +47,11 @@
             color: #FAF9F6;
         }
         
+        /* Previene parpadeo de Alpine.js */
+        [x-cloak] { 
+            display: none !important; 
+        }
+        
         /* Sidebar transitions */
         .sidebar-transition {
             transition: transform 0.3s ease-in-out;
@@ -238,8 +243,13 @@
                 
                 <!-- Logo y botón mobile -->
                 <div class="flex items-center space-x-3">
+                    <!-- BOTÓN MENÚ MÓVIL (Añadido para el script) -->
+                    <button id="mobile-menu-toggle" class="text-ale-text-dim hover:text-ale-pink p-1 block md:hidden focus:outline-none" aria-label="Abrir menú">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+
                     <div class="flex items-center">
-                        <div class="inline-block focus:outline-none" aria-label="Ir al inicio de Alebringüe">
+                        <a href="/" class="inline-block focus:outline-none" aria-label="Ir al inicio de Alebringüe">
                             <img 
                                 src="{{ asset('images/Logo.png') }}" 
                                 alt="Logo Alebringüe" 
@@ -247,7 +257,7 @@
                                 loading="eager"
                                 decoding="async"
                             >
-                        </div>
+                        </a>
                     </div>
                 </div>
                 
@@ -256,6 +266,7 @@
                     <a href="{{ route('home') }}" class="text-ale-text-dim hover:text-ale-pink transition">Inicio</a>
                     <a href="{{ route('lessons.page') }}" class="text-ale-text-dim hover:text-ale-pink transition">Lecciones</a>
                     <a href="{{ route('classrooms.user') }}" class="text-ale-text-dim hover:text-ale-pink transition">Clases</a>
+                    <a href="#" class="text-ale-text-dim hover:text-ale-pink transition">Niveles</a>
                     <a href="{{ route('translator.index') }}" class="text-ale-text-dim hover:text-ale-pink transition">Traductor</a>
                 </nav>
                 
@@ -277,7 +288,7 @@
                             <i class="fas fa-chevron-down text-ale-text-dim text-xs hidden md:block"></i>
                         </button>
                         
-                        <div x-show="open" x-cloak class="absolute right-0 mt-2 w-56 bg-ale-surface border border-ale-border rounded-xl shadow-xl z-50" style="display: none;">
+                        <div x-show="open" x-cloak class="absolute right-0 mt-2 w-56 bg-ale-surface border border-ale-border rounded-xl shadow-xl z-50">
                             <div class="p-3 border-b border-ale-border">
                                 <p class="text-ale-text font-medium text-sm">{{ Auth::user()->name ?? 'Invitado' }}</p>
                                 <p class="text-ale-text-dim text-xs">{{ Auth::user()->email ?? 'usuario@ejemplo.com' }}</p>
@@ -287,12 +298,18 @@
                                 <a href="{{ route('profile.user_index') }}" class="sidebar-link block px-4 py-2 text-sm text-ale-text-dim hover:text-ale-pink">
                                     <i class="fas fa-user-circle mr-3 w-4"></i> Mi Perfil
                                 </a>
+                                <a href="#" class="sidebar-link block px-4 py-2 text-sm text-ale-text-dim hover:text-ale-pink">
+                                    <i class="fas fa-cog mr-3 w-4"></i> Configuración
+                                </a>
                             </div>
                             <div class="border-t border-ale-border py-2">
-                               <a href="{{ route('logout') }}" class="sidebar-link block px-4 py-2 text-sm text-red-400 hover:text-red-300">
-                                    <i class="fas fa-sign-out-alt mr-3 w-4"></i> Cerrar Sesión
-                                </a>
-                                </form>
+                               <!-- Formulario e inyección correcta para Logout seguro -->
+                               <form method="POST" action="{{ route('logout') }}" id="logout-form">
+                                   @csrf
+                                   <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();" class="sidebar-link block px-4 py-2 text-sm text-red-400 hover:text-red-300">
+                                        <i class="fas fa-sign-out-alt mr-3 w-4"></i> Cerrar Sesión
+                                    </a>
+                               </form>
                             </div>
                         </div>
                     </div>
@@ -317,11 +334,6 @@
                             </div>
                             <div>
                                 <p class="text-ale-text font-semibold">{{ Auth::user()->name ?? 'Usuario' }}</p>
-                                <!-- <p class="text-ale-text-dim text-xs">Nivel: Intermedio</p>
-                                <div class="flex items-center gap-1 mt-1">
-                                    <i class="fas fa-star text-yellow-500 text-xs"></i>
-                                    <span class="text-ale-text-dim text-xs">1,250 pts</span>
-                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -339,7 +351,7 @@
                             </li>
                             <li>
                                 <a href="{{ route('lessons.page') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
-                                    <i class="fas fa-layer-group mr-3 w-5"></i> Lecciones
+                                    <i class="fas fa-book mr-3 w-5"></i> Lecciones
                                 </a>
                             </li>
                             <li>
@@ -348,35 +360,16 @@
                                 </a>
                             </li>
                             <li>
+                                <a href="#" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
+                                    <i class="fas fa-level-up-alt mr-3 w-5"></i> Niveles
+                                </a>
+                            </li>
+                            <li>
                                 <a href="{{ route('translator.index') }}" class="sidebar-link block px-3 py-2.5 rounded-lg transition">
                                     <i class="fas fa-language mr-3 w-5"></i> Traductor
                                 </a>
                             </li>
                         </ul>
-                        
-                        <!-- Racha y actividad
-                        <div class="mt-4 p-3 bg-black/30 rounded-xl border border-ale-border/50">
-                            <h3 class="font-medium text-xs text-ale-text-dim uppercase tracking-wider mb-3 flex items-center">
-                                <i class="fas fa-fire mr-2 text-orange-500"></i> Tu actividad
-                            </h3>
-                            <div class="space-y-2 text-sm">
-                                <div class="flex justify-between items-center">
-                                    <span class="text-ale-text-dim">Racha actual:</span>
-                                    <span class="font-bold text-ale-text"><i class="fas fa-fire text-orange-500 mr-1"></i> 7 días</span>
-                                </div>
-                                <div class="flex justify-between items-center">
-                                    <span class="text-ale-text-dim">Lecciones completadas:</span>
-                                    <span class="font-bold text-ale-text">12/20</span>
-                                </div>
-                                <div class="progress-bar h-2 mt-1">
-                                    <div class="progress-fill" style="width: 60%"></div>
-                                </div>
-                                <div class="flex justify-between items-center mt-2">
-                                    <span class="text-ale-text-dim">Puntos totales:</span>
-                                    <span class="font-bold text-ale-pink">1,250</span>
-                                </div>
-                            </div>
-                        </div> -->
                         
                         <!-- Descarga app -->
                         <div class="mt-4 p-3 bg-gradient-to-r from-ale-pink/20 to-transparent rounded-xl border border-ale-pink/30">
